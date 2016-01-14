@@ -7,22 +7,19 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="Estilo/estilos.css" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
     <body> 
         <div id="divprincipal">
        <center>
-           
-                <menu id="idmenu" >
-                    <div></div>
-                    <a>principal</a>
-                    <a >home</a>
-                    <a >home</a>
-                    <a >home</a>
-                 
-                 </menu>
-            </center>
+        <menu id="idmenu" >
+            <div></div>
+            <a>principal</a>
+            <a >home</a>
+            <a >home</a>
+            <a >home</a>
+        </menu></center>
             <div id="idcontenedor">
                 
             </div>
