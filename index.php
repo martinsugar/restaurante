@@ -23,6 +23,9 @@ and open the template in the editor.
                  
                  </menu>
             </center>
+            <div id="idcontenedor">
+                
             </div>
+        
     </body>
 </html>

@@ -34,3 +34,9 @@ body{
     margin: 0 auto;
     width: 1058px;
 }
+#idcontenedor {
+    height: 674px;
+    width: 1010px;
+    background-color: rebeccapurple;
+    margin: 79px auto;
+}
