@@ -133,8 +133,8 @@ button{
 .popup{
     background: white;
     border: solid medium appworkspace;
-    padding: 10px 20px;
-    display:none;
+    padding: 11px 21px;
+    display:block;
 }
 .alineacionIzquierda{
     float: left;
@@ -176,7 +176,7 @@ button{
     position: fixed;
     top: 0;
     width: 100%;
-    display: none;
+    display: block;
 }
 #cargando{
     background: rgba(163, 160, 173, 0.37) none repeat scroll 0 0;
@@ -249,4 +249,8 @@ body{
     width: 1010px;
     background-color: rebeccapurple;
     margin: 79px auto;
+}
+#idmenu a:hover{
+    transform: scale(1,1.5)  
+     
 }

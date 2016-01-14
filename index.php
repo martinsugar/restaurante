@@ -8,21 +8,28 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <link href="Estilo/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="index.js" type="text/javascript"></script>
         <title></title>
     </head>
     <body> 
         <div id="divprincipal">
        <center>
-        <menu id="idmenu" >
+        <menu id="idmenu"  >
             <div></div>
-            <a>principal</a>
+            <a onclick="" style="cursor: pointer">principal</a>
             <a >home</a>
             <a >home</a>
             <a >home</a>
         </menu></center>
             <div id="idcontenedor">
+             
+            </div>
+            
+           <div class="background">
+                    
+                </div>
+            <div class="popup">
                 
             </div>
-        
     </body>
 </html>
