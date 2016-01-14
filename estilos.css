@@ -1,0 +1,36 @@
+body{
+    font-family: arial;
+    
+}
+#principal {
+   height: 1000px;
+   width: 600px;
+   background-color: red;
+   margin: 0 auto;
+}
+#idmenu{
+ height: 30px;
+    margin-left: 0;
+}
+#idmenu a{
+   background: blue none repeat scroll 0 0;
+    box-shadow: 0 0 1px 1px;
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 12px;
+    padding: 12px 25px;
+    position: relative;
+    top: -43px;
+    width: 150px;
+}
+#idmenu div {
+    background: red;
+    height: 30px;
+    margin-left: -41px;
+}
+#divprincipal{
+      box-shadow: 0 0 7px 1px black;
+    height: 800px;
+    margin: 0 auto;
+    width: 1058px;
+}
