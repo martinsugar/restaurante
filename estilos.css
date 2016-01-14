@@ -1,4 +1,214 @@
 body{
+    background:#01AEB4;
+    font-size: 15px;
+    font-family: arial;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    color: black;
+    background-image: url('../IMAGENES/PATRON DE FONDO.png');
+}
+@font-face {
+    font-family: layla;
+    src: url('LaylaExtraBold.ttf');
+}
+h1{
+    font-size: 36px;
+    margin-top: 1px;
+    text-align: center;
+    font-family: layla;
+}
+#categoriaSeleccionado{
+    font-size: 36px;
+    margin-top: 1px;
+    text-align: center;
+    font-family: layla;
+}
+#by{
+    background: white none repeat scroll 0 0;
+    border: medium solid;
+    padding: 15px;
+    position: absolute;
+    top: 87px;
+    width: 409px;
+}
+table *{
+    text-align: center;
+    padding:0;
+}
+table div{
+    word-wrap: break-word;
+}
+table td, table th{
+    padding:0 2px;
+}
+table td input,table td select{
+    width: 100%;
+}
+thead{
+    background: #38353c none repeat scroll 0 0;
+    color: #d9d9d9;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+table{
+    background: white;
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 11px;
+}
+tbody{
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.centrar{
+    text-align: center;
+    margin: 0 auto;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.negrilla{
+    font-weight: bold;
+}
+.negrillaenter{
+    font-weight: bold;
+    display: block;
+    padding-top: 3px;
+}
+.sinborde{
+    border: none;
+}
+.pequeno{
+    width: 50px;
+     
+}
+.pequeno2{
+    width: 20px;
+    height: 20px;
+}
+.chico{
+    width: 70px;
+}
+.normal{
+    width: 100px;
+}
+.medio{
+    width: 150px;
+}
+.grande{
+    width: 200px;
+}
+.grande2{
+    width: 250px;
+}
+.grande3{
+    width: 300px;
+}
+button{
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 1px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.error{
+    color: #4f0d00;
+    display: block;
+    font-size: 12px;
+}
+.correcto{
+    color: #00FF00;
+    display: block;
+    font-size: 12px;
+}
+.popup{
+    background: white;
+    border: solid medium appworkspace;
+    padding: 10px 20px;
+    display:none;
+}
+.alineacionIzquierda{
+    float: left;
+}
+.alineacionDerecha{
+    float: right;
+}
+.dor50{
+    width: 49%;
+    float: left;
+    padding: 0;
+    min-height: 10px;
+}
+.contenedor30{
+    width: 29%;
+    float: left;
+    padding: 0;
+}
+.contenedor70{
+    width: 69%;
+    float: left;
+    padding: 0;
+}
+.contenedor50{
+    width: 50%;
+    float: left;
+    padding: 0;
+}
+#msmOK{
+    border: medium solid #4c4c4c;
+    border-radius: 7px;
+    width: 340px;
+    z-index: 5;
+}
+.background{
+    background: rgba(163, 160, 173, 0.37) none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+}
+#cargando{
+    background: rgba(163, 160, 173, 0.37) none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+}
+#cargando img{
+    height: 80%;
+}
+#cargando div{
+    background: white none repeat scroll 0 0;
+    border: medium solid;
+    border-radius: 15px;
+    height: 160px;
+    margin: 155px auto;
+    width: 230px;
+}
+.vistafoto{
+    width: 25px;
+}
+.vistafoto:hover{
+    width: 50px;
+}
+div{
+    padding: 3px 10px;
+}
+
+body{
     font-family: arial;
     
 }
