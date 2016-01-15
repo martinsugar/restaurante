@@ -12,13 +12,14 @@ and open the template in the editor.
         <script src="JavaScript/jquery-ui.js" type="text/javascript"></script>
          <script src="JavaScript/HERRAMIENTAS.js" type="text/javascript"></script>
         <link href="Estilo/estilos.css" rel="stylesheet" type="text/css"/>
-        <script src="JavaScript/index.js" type="text/javascript"></script>
+        <link href="Estilo/EstiloFecha.css" rel="stylesheet" type="text/css"/>
+        <script src="JavaScript/cliente.js" type="text/javascript"></script>
         <title></title>
     </head>
     <body>
          <div id="divprincipal">
        <center>
-        <menu id="idmenu"  >
+        <menu id="idmenu" style="background-color: "E8300C" >
             <div></div>
             <a onclick="popup()" style="cursor: pointer">principal</a>
             <a >home</a>
@@ -28,18 +29,21 @@ and open the template in the editor.
             <div id="idcontenedor">
                 <br>
                 <a class="negrillaenter ">nombre completo</a>
-                <input type="text" class="grande2" name="nombre"/>
-                <br>
-                <a class="negrillaenter" id="correo">correo electronico</a>
-                <input type="text"/>
+                <input type="text" class="grande2" name="nombre"/><br>
+                 <a class="negrillaenter ">direccion</a>
+                <input type="text" class="grande2" name="direccion"/><br>
+                    <a class="negrillaenter">fecha de nacimiento: </a>
+            <input id="edad" type="date" name="edad" class="fecha"><br>
+             <a class="negrillaenter" >correo electronico</a>
+                <input type="text" class="grande2" name="correo"/>
+                <a class="negrillaenter ">cuenta</a>
+                <input type="text" class="grande2" name="cuenta"/><br>        
                 <a class="negrillaenter">contraseña</a>
                 <input type="password" class="grande" id="contraseña"> <br>
                
-              <a class="negrillaenter">fecha nacimiento: </a>
-            <input id="fechanacimiento" type="date" name="fechanac"><br>
-              <a class="negrillaenter">edad: </a>
-            <input id="edad" type="date" name="edad" class="fecha"><br>
-                <button id="validar" onclick="validar1()" name="Ver total" value="Ver total">crear cuenta</button>
+              
+          
+                <button class="grande2" id="bvalidar" onclick="validar1()" name="Ver total" value="Ver total">crear cuenta</button>
                 
             </div>
             

@@ -135,7 +135,7 @@ button{
     border: solid medium appworkspace;
     padding: 11px 21px;
     display:none;
-    height: 300px;
+ 
         width: 336px;
 }
 .alineacionIzquierda{
@@ -221,36 +221,41 @@ body{
    margin: 0 auto;
 }
 #idmenu{
+    
  height: 30px;
     margin-left: 0;
 }
 #idmenu a{
-   background: blue none repeat scroll 0 0;
-    box-shadow: 0 0 1px 1px;
-    display: inline-block;
-    font-size: 24px;
-    margin-left: 12px;
-    padding: 12px 25px;
-    position: relative;
-    top: -43px;
-    width: 150px;
+   background: #FF3F00 none repeat scroll 0 0;
+   box-shadow: 0 0 1px 1px;
+   display: inline-block;
+   font-size: 24px;
+   margin-left: 12px;
+   padding: 12px 25px;
+   position: relative;
+   top: -43px;
+   width: 150px;
+   border-radius: 5px;
 }
 #idmenu div {
-    background: red;
+    background-color: #E8300C;
     height: 30px;
     margin-left: -41px;
 }
 #divprincipal{
       box-shadow: 0 0 7px 1px black;
-    height: 800px;
-    margin: 0 auto;
-    width: 1058px;
+      height: 800px;
+      margin: 0 auto;
+      width: 1058px;
+      background: white;
 }
 #idcontenedor {
-    height: 674px;
-    width: 1012px;
+    height: 564px;
+    width: 909px;
     background-color: rebeccapurple;
     margin: 79px auto;
+    padding: 13px;
+    border-radius: 27px;
 }
 #idmenu a:hover{
     transform: scale(1,1.5)  
@@ -260,3 +265,14 @@ body{
        width: 316px;
     height: 195px;
 }
+input.grande2 {
+    border-radius: 5px;
+    
+}
+input.grande{
+    
+      border-radius: 5px;
+}
+#bvalidar{
+    
+    }

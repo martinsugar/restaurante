@@ -61,6 +61,8 @@ CREATE TABLE `cliente` (
   `contrasena` varchar(45) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
   `telefono` varchar(45) DEFAULT NULL,
+  `fechanacimiento` varchar(45) DEFAULT NULL,
+  
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

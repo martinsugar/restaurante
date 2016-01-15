@@ -279,6 +279,11 @@ function validar(tipo,texto){
                 return true;
             }
             break;
+        case "vacio":
+           if(texto.length===0){
+                return true;
+            }
+            break;
         case "entero":
             var expresion=/^[0-9\s]+$/;
             if(expresion.exec(texto)){
