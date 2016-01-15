@@ -8,7 +8,15 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <link href="Estilo/estilos.css" rel="stylesheet" type="text/css"/>
+             <script src="JavaScript/HERRAMIENTAS.js" type="text/javascript"></script>
         <script src="index.js" type="text/javascript"></script>
+        
+        <script src="JavaScript/jquery-2.1.3.min.js" type="text/javascript"></script>
+        <script src="JavaScript/jquery-ui.js" type="text/javascript"></script>
+   
+        <script src="JavaScript/index.js" type="text/javascript"></script>
+        
+        
         <title></title>
     </head>
     <body> 
@@ -16,7 +24,7 @@ and open the template in the editor.
        <center>
         <menu id="idmenu"  >
             <div></div>
-            <a onclick="" style="cursor: pointer">principal</a>
+            <a onclick="popup()" style="cursor: pointer">principal</a>
             <a >home</a>
             <a >home</a>
             <a >home</a>
@@ -25,11 +33,22 @@ and open the template in the editor.
              
             </div>
             
-           <div class="background">
+            <div class="background" onclick="cerrarpopup()">
                     
                 </div>
-            <div class="popup">
-                
+            <div class="popup grande3">
+                <div id="imagenpopup">
+                    <img src="JavaScript/img376.jpg" alt=""/>
+                </div>
+                <div class="centrar">
+                <span class="negrillaenter">cuenta</span>
+                <input type="text" class="grande" />
+                <span class="negrillaenter">contrase;a</span>
+                <input type="text" class="grande"><br>
+                <button class="negrilla">entrar</button>
+                </div>
             </div>
+            </div>
+            
     </body>
 </html>

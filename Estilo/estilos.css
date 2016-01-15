@@ -134,7 +134,9 @@ button{
     background: white;
     border: solid medium appworkspace;
     padding: 11px 21px;
-    display:block;
+    display:none;
+    height: 300px;
+        width: 336px;
 }
 .alineacionIzquierda{
     float: left;
@@ -170,13 +172,13 @@ button{
     z-index: 5;
 }
 .background{
-    background: rgba(163, 160, 173, 0.37) none repeat scroll 0 0;
+    background: rgba(163, 160, 173, 0.9) none repeat scroll 0 0;
     height: 100%;
     left: 0;
     position: fixed;
     top: 0;
     width: 100%;
-    display: block;
+    display: none;
 }
 #cargando{
     background: rgba(163, 160, 173, 0.37) none repeat scroll 0 0;
@@ -246,11 +248,15 @@ body{
 }
 #idcontenedor {
     height: 674px;
-    width: 1010px;
+    width: 1012px;
     background-color: rebeccapurple;
     margin: 79px auto;
 }
 #idmenu a:hover{
     transform: scale(1,1.5)  
      
+}
+#imagenpopup{
+       width: 316px;
+    height: 195px;
 }
