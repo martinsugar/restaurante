@@ -280,7 +280,7 @@ function validar(tipo,texto){
             }
             break;
         case "vacio":
-           if(texto.length===0){
+           if(texto.length>0){
                 return true;
             }
             break;

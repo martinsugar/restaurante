@@ -4,9 +4,14 @@ body{
     font-family: arial;
     margin: 0;
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
     color: black;
     background-image: url('../IMAGENES/PATRON DE FONDO.png');
+}
+iframe{
+    width: 99%;
+    height: 99%;
+    border: none;
 }
 @font-face {
     font-family: layla;
@@ -225,7 +230,7 @@ body{
  height: 30px;
     margin-left: 0;
 }
-#idmenu a{
+#idmenu span{
    background: #FF3F00 none repeat scroll 0 0;
    box-shadow: 0 0 1px 1px;
    display: inline-block;
@@ -242,6 +247,11 @@ body{
     height: 30px;
     margin-left: -41px;
 }
+#cuerpoFormulario{
+    background: rebeccapurple none repeat scroll 0 0;
+    height: 552px;
+    width: 881px;
+}
 #divprincipal{
       box-shadow: 0 0 7px 1px black;
       height: 800px;
@@ -257,8 +267,9 @@ body{
     padding: 13px;
     border-radius: 27px;
 }
-#idmenu a:hover{
-    transform: scale(1,1.5)  
+#idmenu span:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
      
 }
 #imagenpopup{

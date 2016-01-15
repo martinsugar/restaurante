@@ -11,7 +11,6 @@ class CLIENTE {
 	function CLIENTE($con) {
 		$this->CON=$con;
 	}
-
 	function contructor($id_cliente, $nombre, $ci, $cuenta, $contrasena, $correo, $telefono){
 		$this->id_cliente = $id_cliente;
 		$this->nombre = $nombre;
@@ -55,5 +54,6 @@ class CLIENTE {
 		$resultado=$this->CON->consulta($consulta);
 		return $resultado->fetch_assoc()['id'];
 	}
+        
 
 }

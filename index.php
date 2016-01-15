@@ -24,13 +24,15 @@ and open the template in the editor.
        <center>
         <menu id="idmenu"  >
             <div></div>
-            <a onclick="popup()" style="cursor: pointer">principal</a>
-            <a >home</a>
-            <a >home</a>
-            <a >home</a>
+            <span onclick="popup()" style="cursor: pointer">principal</span>
+            <span onclick="cambiarMenu('Formularios/Cliente.php')">Cliente</span>
+            <span>home</span>
+            <span>home</span>
         </menu></center>
             <div id="idcontenedor">
-             
+                <iframe id="frameprincipal">
+                    
+                </iframe>
             </div>
             
             <div class="background" onclick="cerrarpopup()">

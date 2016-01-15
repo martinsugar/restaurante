@@ -8,7 +8,9 @@ function popup(){
        $(".popup").centrar(); 
 }
 function cerrarpopup(){
-    
-     $(".background").ocultar(); 
-       $(".popup").ocultar(); 
+    $(".background").ocultar(); 
+    $(".popup").ocultar(); 
+}
+function cambiarMenu(url){
+    $("#frameprincipal").attr('src',url);
 }
