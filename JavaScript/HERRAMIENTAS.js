@@ -280,7 +280,7 @@ function validar(tipo,texto){
             }
             break;
         case "vacio":
-           if(texto.length>0){
+           if(texto.length!==1){
                 return true;
             }
             break;
@@ -296,8 +296,9 @@ function validar(tipo,texto){
                 return true;
             }
             break;
+           
     }
-    return false;
+     return false;
 }
 function ok(){
     $("#backgroundAux").remove();

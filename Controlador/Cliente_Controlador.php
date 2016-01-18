@@ -17,7 +17,7 @@
         $cliente->contructor(0, $nombre, $ci, $cuenta, $contrasena, $correo, $telefono);
         $cliente->insertar();
         if($cliente->insertar()==0){
-            $error="Se corto la conexion con el servidor. Intenet nuevamente.";
+            $error="Se corto la conexion con el servidor. Intente nuevamente.";
         }
     }
     $reponse = array("error" => $error,"result"=>$resultado);
