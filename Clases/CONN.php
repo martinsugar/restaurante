@@ -4,7 +4,7 @@ class CONN {
    var $servername = "localhost";
    var $username = "root";
    var $password = "";
-   var $dbname="chiquifest";
+   var $dbname="eldebatedegusto";
    var $conn;
    var $estado;
    

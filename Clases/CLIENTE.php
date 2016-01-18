@@ -48,7 +48,7 @@ class CLIENTE {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.CLIENTE(id_cliente, nombre, ci, cuenta, contrasena, correo, telefono) values("+$this->id_cliente+",'"+$this->nombre+"','"+$this->ci+"','"+$this->cuenta+"','"+$this->contrasena+"','"+$this->correo+"','"+$this->telefono+"')";
+		$consulta="insert into eldebatedegusto.CLIENTE(id_cliente, nombre, ci, cuenta, contrasena, correo, telefono) values(".$this->id_cliente.",'".$this->nombre."','".$this->ci."','".$this->cuenta."','".$this->contrasena."','".$this->correo."','".$this->telefono."')";
 		$resultado=$this->CON->consulta($consulta);
 		$consulta="SELECT LAST_INSERT_ID() as id";
 		$resultado=$this->CON->consulta($consulta);

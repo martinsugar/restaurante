@@ -47,8 +47,8 @@ function crearCliente()
         return;
     }
     $("#cargando").visible();
-    $.post(url, {proceso: 'insertarCliente', nombre: nombres,direccion:direccion,fecha:$("input[name=edad]").val()
-        ,correo:email}, function (response) {
+    $.post(url, {proceso: 'insertarCliente', nombre: nombres,ci:$("input[name=ci]").val(),cuenta:cuenta,
+        contrasena:$("input[name=contraseña]").val(),correo:email,telefono:$("input[name=telefono]").val()}, function (response) {
         $("#cargando").ocultar();
         var json=$.parseJSON(response);
         if (json.error !== "") {

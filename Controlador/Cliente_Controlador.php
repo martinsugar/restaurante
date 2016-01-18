@@ -13,8 +13,10 @@
         $direccion=$_POST['direccion'];
         $cuenta=$_POST['cuenta'];
         $ci=$_POST['ci'];
-        
+        $contrasena=$_POST['contrasena'];
+        $telefono=$_POST['telefono'];
         $cliente->contructor(0, $nombre, $ci, $cuenta, $contrasena, $correo, $telefono);
+        $cliente->CON=$con;
         $cliente->insertar();
         if($cliente->insertar()==0){
             $error="Se corto la conexion con el servidor. Intente nuevamente.";
