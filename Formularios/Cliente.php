@@ -8,6 +8,7 @@
         <script src="../JavaScript/jquery-ui.js" type="text/javascript"></script>
         <script src="../JavaScript/HERRAMIENTAS.js" type="text/javascript"></script>
         <script src="../JavaScript/cliente.js" type="text/javascript"></script>
+    <a href="../Clases/HERRAMIENTASPHP.php"></a>
         <title></title>
     </head>
     <body>
@@ -28,6 +29,8 @@
             <input type="text" class="medio" name="cuenta"/>      
             <span class="negrillaenter">contraseña</span>
             <input type="password" class="medio" name="contraseña" id="contraseña">
+            <span class="negrillaenter">repita la contraseña</span>
+            <input type="password" class="medio" name="rcontraseña" id="contraseña">
             
             <div class='centrar'>
                 <button class="medio" id="bvalidar" onclick="crearCliente()">REGISTRAR</button>
