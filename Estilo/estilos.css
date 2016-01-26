@@ -4,7 +4,7 @@ body{
     font-family: arial;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
     color: black;
     background-image: url('../IMAGENES/PATRON DE FONDO.png');
 }
@@ -80,6 +80,7 @@ tbody{
 img{
     height: 100%;
     width: 100%;
+     border-radius: 133px;
 }
 .negrilla{
     font-weight: bold;
@@ -225,6 +226,12 @@ body{
    background-color: red;
    margin: 0 auto;
 }
+.point:hover{
+    cursor:pointer;
+    transform: scale(1.05,1.05);
+    
+    
+}
 #idmenu{
     
  height: 30px;
@@ -247,11 +254,13 @@ body{
     height: 30px;
     margin-left: -41px;
 }
-#cuerpoFormulario{
+.cuerpoFormulario{
     background: rebeccapurple none repeat scroll 0 0;
-    height: 552px;
+    height: 541px;
+    overflow: auto;
     width: 881px;
 }
+
 #divprincipal{
       box-shadow: 0 0 7px 1px black;
       height: 800px;
@@ -284,6 +293,36 @@ input.grande{
     
       border-radius: 5px;
 }
-#bvalidar{
-    
+#fotoperfil{
+    width: 268px;
+    height: 141px;
+    text-align: center;
     }
+    #logo{
+    width: 124px;
+    height: 124px;
+    text-align: center;
+    }
+#divregistro{
+  display: inline-block;
+    height: 493px;
+    width: 320px;
+     border: medium solid black;
+    border-radius: 35px;
+ }
+ #divsucursal{
+        border: medium solid black;
+        border-radius: 35px;
+        display: inline-block;
+        height: 240px;
+        padding-top: 61px;
+        width: 320px;
+        position: relative;
+ }
+  #divpersonal{
+         height: 383px;
+    width: 320px;
+     border: medium solid black;
+    border-radius: 35px;
+       display: inline-block;
+ }

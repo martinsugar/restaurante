@@ -296,6 +296,12 @@ function validar(tipo,texto){
                 return true;
             }
             break;
+        case "email":
+            var expresion=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;;
+            if(expresion.exec(texto)){
+                return true;
+            }
+            break;
            
     }
      return false;

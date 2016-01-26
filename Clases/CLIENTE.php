@@ -7,11 +7,13 @@ class CLIENTE {
 	var $contrasena;
 	var $correo;
 	var $telefono;
+        var $fechanacimiento;
+        var $foto;
 	var $CON;
 	function CLIENTE($con) {
 		$this->CON=$con;
 	}
-	function contructor($id_cliente, $nombre, $ci, $cuenta, $contrasena, $correo, $telefono){
+	function contructor($id_cliente, $nombre, $ci, $cuenta, $contrasena, $correo, $telefono, $fechanacimiento,$foto){
 		$this->id_cliente = $id_cliente;
 		$this->nombre = $nombre;
 		$this->ci = $ci;
@@ -19,6 +21,8 @@ class CLIENTE {
 		$this->contrasena = $contrasena;
 		$this->correo = $correo;
 		$this->telefono = $telefono;
+		$this->fechanacimiento = $fechanacimiento;
+                $this->foto= $foto;
 	}
 
 	function cargar($resultado){
@@ -33,6 +37,8 @@ class CLIENTE {
 				$cliente->contrasena=$row['contrasena']==null?"":$row['contrasena'];
 				$cliente->correo=$row['correo']==null?"":$row['correo'];
 				$cliente->telefono=$row['telefono']==null?"":$row['telefono'];
+				$cliente->fechanacimiento=$row['fechanacimiento']==null?"":$row['fechanacimiento'];
+				$cliente->foto=$row['foto']==null?"":$row['foto'];
 				$lista[]=$empresa;
 			}
 			return $lista;
@@ -48,7 +54,7 @@ class CLIENTE {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.CLIENTE(id_cliente, nombre, ci, cuenta, contrasena, correo, telefono) values(".$this->id_cliente.",'".$this->nombre."','".$this->ci."','".$this->cuenta."','".$this->contrasena."','".$this->correo."','".$this->telefono."')";
+		$consulta="insert into eldebatedegusto.CLIENTE(id_cliente, nombre, ci, cuenta, contrasena, correo, telefono,fechanacimiento,foto) values(".$this->id_cliente.",'".$this->nombre."','".$this->ci."','".$this->cuenta."','".$this->contrasena."','".$this->correo."','".$this->telefono."','".$this->fechanacimiento."','".$this->foto."')";
 		$resultado=$this->CON->consulta($consulta);
 		$consulta="SELECT LAST_INSERT_ID() as id";
 		$resultado=$this->CON->consulta($consulta);

@@ -12,7 +12,11 @@
         <title></title>
     </head>
     <body>
-        <div id='cuerpoFormulario'>
+        <div class="cuerpoFormulario">
+            <span class="negrillaenter ">foto</span>
+            <div id="fotoperfil">
+                <img id="foto" src="../JavaScript/img376.jpg" alt="" onclick="cargarImagen(this,1)" class="point"/>
+            </div>
             <span class="negrillaenter ">nombre completo</span>
             <input type="text" class="grande2" name="nombre"/>
             <span class="negrillaenter ">C.I.</span>
@@ -30,8 +34,9 @@
             <span class="negrillaenter">contraseña</span>
             <input type="password" class="medio" name="contraseña" id="contraseña">
             <span class="negrillaenter">repita la contraseña</span>
-            <input type="password" class="medio" name="rcontraseña" id="contraseña">
-            
+            <input type="password" class="medio" name="rcontraseña" >
+            <input type="file" id="fotocargar" style="display:none" onchange="cargarImagen(this,2)">
+            <canvas id="canvas" style="display: none"></canvas>
             <div class='centrar'>
                 <button class="medio" id="bvalidar" onclick="crearCliente()">REGISTRAR</button>
             </div>

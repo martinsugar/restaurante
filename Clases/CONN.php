@@ -55,4 +55,7 @@ class CONN {
    function rollback(){
        $this->conn->rollback();
    }
+   function closed(){
+  mysql_close($conn);
+   }
 }

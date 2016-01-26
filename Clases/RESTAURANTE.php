@@ -43,7 +43,7 @@ class RESTAURANTE {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.RESTAURANTE(id_restaurante, nombre, razon_social, logo, fechaCreacion) values("+$this->id_restaurante+",'"+$this->nombre+"','"+$this->razon_social+"','"+$this->logo+"','"+$this->fechaCreacion+"')";
+		$consulta="insert into eldebatedegusto.RESTAURANTE(id_restaurante, nombre, razon_social, logo, fechaCreacion) values(".$this->id_restaurante.",'".$this->nombre."','".$this->razon_social."','".$this->logo."','".$this->fechaCreacion."')";
 		$resultado=$this->CON->consulta($consulta);
 		$consulta="SELECT LAST_INSERT_ID() as id";
 		$resultado=$this->CON->consulta($consulta);

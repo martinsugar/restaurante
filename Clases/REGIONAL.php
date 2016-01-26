@@ -12,14 +12,14 @@ class REGIONAL {
 		$this->descripcion = $descripcion;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
 				$regional=new REGIONAL();
 				$regional->id_regional=$row['id_regional']==null?"":$row['id_regional'];
 				$regional->descripcion=$row['descripcion']==null?"":$row['descripcion'];
-				$lista[]=$empresa;
+				$lista[]=$regional;
 			}
 			return $lista;
 		}else{

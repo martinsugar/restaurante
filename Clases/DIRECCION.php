@@ -37,7 +37,7 @@ class DIRECCION {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.DIRECCION(id_direccion, descripcion, cliente_id) values("+$this->id_direccion+",'"+$this->descripcion+"',"+$this->cliente_id+")";
+		$consulta="insert into eldebatedegusto.DIRECCION(id_direccion, descripcion, cliente_id) values(".$this->id_direccion.",'".$this->descripcion."',".$this->cliente_id.")";
 		$resultado=$this->CON->consulta($consulta);
 		$consulta="SELECT LAST_INSERT_ID() as id";
 		$resultado=$this->CON->consulta($consulta);

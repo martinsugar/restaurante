@@ -9,9 +9,10 @@ function crearCliente()
     var cuenta = $("input[name=cuenta]").val().trim().toLowerCase();
     var direccion = $("input[name=direccion]").val().trim();
     var email = $("input[name=correo]").val().trim();
+    var foto = $("#foto").attr('src');
     var text = "";
-    var 
-   /* if (!validar("vacio", nombres))
+   
+ if (!validar("vacio", nombres))
     {
         text += "<p>el campo nombre completo no puede estar vacio</p>";
     }
@@ -23,7 +24,7 @@ function crearCliente()
     {
         text += "<p>el correo electronico no puede estar vacio</p>";
     }
-    if (!validar("email", email))
+    if (!validar("texto y entero", email))
     {
         text += "<p>por favor instroduzca su correo electronico correctamente, no estan permitidos los carateres especiales</p>";
     }
@@ -43,18 +44,19 @@ function crearCliente()
     {
         text += "<p>el password tiene que tener mayor a 4  y menor a 8 caracteres</p>";
     }
-    if ($('#rcontraseña').val()!==$('#contraseña').val())
+/*    if ($('#rcontraseña').val()!==$('#contraseña').val())
     {
            text += "<p>las contraseñas no coinciden, vuelva a intentarlo</p>";
         
-    }
+    }*/
     if (text.length > 0){
         $("body").msmOK(text);
         return;
-    }*/
+    }
     $("#cargando").visible();
     $.post(url, {proceso: 'insertarCliente', nombre: nombres,ci:$("input[name=ci]").val().toLowerCase(),cuenta:cuenta,
-        contrasena:$("input[name=contraseña]").val().toLowerCase(),rcontraseña:$("input[name=rcontraseña]"),correo:email,telefono:$("input[name=telefono]").val()}, function (response) {
+        contrasena:$("input[name=contraseña]").val().toLowerCase(),ci:$("input[name=ci]").val().toLowerCase(),telefono:$("input[name=telefono]")
+        ,fechanacimiento:$("#edad").val(),rcontraseña:$("input[name=rcontraseña]").val().toLowerCase(),direccion:$("input[name=direccion]").val().toLowerCase() ,correo:email,telefono:$("input[name=telefono]").val().toLowerCase(),foto:foto}, function (response) {
         $("#cargando").ocultar();
         var json=$.parseJSON(response);
         if (json.error !== "") {

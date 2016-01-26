@@ -26,7 +26,7 @@ and open the template in the editor.
             <div></div>
             <span onclick="popup()" style="cursor: pointer">principal</span>
             <span onclick="cambiarMenu('Formularios/Cliente.php')">Cliente</span>
-            <span>home</span>
+            <span onclick="cambiarMenu('Formularios/RegistroEmpresa.php')">REGISTRO</span>
             <span>home</span>
         </menu></center>
             <div id="idcontenedor">
