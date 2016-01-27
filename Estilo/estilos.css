@@ -334,3 +334,23 @@ input.grande{
     border-radius: 35px;
        display: inline-block;
  }
+ #ingreso{
+    background: rgba(187, 187, 187, 0.75) none repeat scroll 0 0;
+    border-radius: 6px;
+    box-shadow: 0 0 7px 1px black;
+    font-size: 25px;
+    margin: 7px auto;
+    padding: 5px;
+    text-align: center;
+    width: 270px;
+    margin-top: 50px;
+}
+#cuerpoIngresar{
+    background: #9F9F9F;
+    border-radius: 7px;
+    box-shadow: 0 0 7px 2px black;
+    color: black;
+    margin: 0 auto;
+    padding: 20px;
+    width: 310px;
+}
