@@ -1,12 +1,11 @@
 body{
-    background:#01AEB4;
     font-size: 15px;
-    font-family: arial;
+    font-family: "Comic Sans MS";
     margin: 0;
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
     color: black;
-    background-image: url('../IMAGENES/PATRON DE FONDO.png');
+    background-size: 60% 100%;
 }
 iframe{
     width: 99%;
@@ -17,17 +16,19 @@ iframe{
     font-family: layla;
     src: url('LaylaExtraBold.ttf');
 }
+#bodyprincipal{
+    background-image: url('bg2.jpg');
+    
+}
 h1{
     font-size: 36px;
     margin-top: 1px;
     text-align: center;
-    font-family: layla;
 }
 #categoriaSeleccionado{
     font-size: 36px;
     margin-top: 1px;
     text-align: center;
-    font-family: layla;
 }
 #by{
     background: white none repeat scroll 0 0;
@@ -141,7 +142,6 @@ button{
     border: solid medium appworkspace;
     padding: 11px 21px;
     display:none;
- 
         width: 336px;
 }
 .alineacionIzquierda{
@@ -233,26 +233,30 @@ body{
     
 }
 #idmenu{
-    
- height: 30px;
-    margin-left: 0;
+  height: 30px;
+    margin-left: -9px;
+    margin-top: 20px;
+    width: 98.3%;
+}
+#idmenu span:first-of-type{
+    margin-left: -26px;
 }
 #idmenu span{
-   background: #FF3F00 none repeat scroll 0 0;
-   box-shadow: 0 0 1px 1px;
+    background: rgba(245,106,25,0.8);
+   box-shadow: 0 0 2px 2px;
    display: inline-block;
    font-size: 24px;
    margin-left: 12px;
    padding: 12px 25px;
    position: relative;
-   top: -43px;
+   top: -45px;
    width: 150px;
    border-radius: 5px;
 }
 #idmenu div {
-    background-color: #E8300C;
-    height: 30px;
+   height: 30px;
     margin-left: -41px;
+    background: #008A3D;
 }
 .cuerpoFormulario{
      background: rebeccapurple none repeat scroll 0 0;
@@ -262,19 +266,23 @@ body{
 }
 
 #divprincipal{
-      box-shadow: 0 0 7px 1px black;
-      height: 800px;
-      margin: 0 auto;
-      width: 1058px;
-      background: white;
+     box-shadow: 0 0 35px 8px black;
+     height: 800px;
+     margin: 0 auto;
+     width: 1058px;
+     background: white;
+     border-radius: 30px;
+     margin-top: 18px;
+     overflow: hidden;
 }
 #idcontenedor {
-    height: 564px;
-    width: 909px;
-    background-color: rebeccapurple;
-    margin: 79px auto;
+     height: 664px;
+    width: 1000px;
+    background-color: rgba(20,106,204,0.8);
+    margin: 32px auto;
     padding: 13px;
-    border-radius: 27px;
+    border: solid thin;
+    border-radius: 3px 3px 3px 115px;
 }
 #idmenu span:hover{
     transform: scale(1.1,1.1);
