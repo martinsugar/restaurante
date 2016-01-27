@@ -7,7 +7,7 @@ function validar($tipo,$texto){
         case "texto":
             $expresion='/^[A-Z üÜáéíóúÁÉÍÓÚñÑ]{1,50}$/i';
             if(!preg_match('/^[A-Z üÜáéíóúÁÉÍÓÚñÑ]{1,50}$/i',$texto)){
-                return false;
+                return true;
             }
          
             break;
@@ -19,7 +19,7 @@ function validar($tipo,$texto){
         case "entero":
             
             if(!preg_match("/^[0-9\s]+$/", $texto)){
-               return false;
+               return true;
             }
             break;
         case "texto y entero":

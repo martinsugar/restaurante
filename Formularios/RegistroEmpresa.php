@@ -37,15 +37,14 @@ and open the template in the editor.
             <input type="text" class="grande2" name="razonsocial"><br>
 
             <br>
-            <br>
             <span class="negrilla grande2">SUCURSAL</span><br>
             <span class="negrillaenter">Nombre</span>
             <input id="nombres" type="text" class="grande2" name="nombre">
             <span class="negrillaenter">Nit</span>
             <input type="text" class="grande2" name="nit"><br>
             <span class="negrillaenter">Direccion</span>
-            <input type="text" class="grande2" name="direccions"><br>
-            <span class="negrillaenter">Regional</span>
+            <input type="text" class="grande2" name="direccions">
+                  <span class="negrillaenter">Regional</span>
             <select id="regional" class="medio">
                 <?php
                 $con = new CONN("rest", "wdigital");
@@ -64,24 +63,27 @@ and open the template in the editor.
                 echo "$resultado";
                 ?>
             </select>
-
-
         </div>
         <div class="contenedor50">
 
-          
+      
+         
             <span class="negrilla grande2">PERSONAL</span>
             <span class="negrillaenter">Nombre</span>
             <input id="nombrep" type="text" class="grande2" name="nombre">
             <span class="negrillaenter">Cuenta</span>
             <input type="text" class="grande2" name="cuenta"><br>
+               <span class="negrillaenter">contraseña</span>
+            <input type="password" class="medio" name="contraseña" id="password">
+            <span class="negrillaenter">repita la contraseña</span>
+            <input type="password" class="medio" name="rpassword" >
             <span id="rol" class="negrillaenter">Rol</span>
             <select>
                 <option value="0">-seleccione un rol-</option>
                 <option value="1">administrador</option>
                 <option value="2">vendedor</option>
                 <option value="3">almacenero</option>
-            </select>           <br>
+            </select>           
                   <span class="negrillaenter ">Telefono</span>
             <input type="text" class="grande2" name="telefono"/><br><br>
             <span class="negrillaenter">Sueldo</span>
@@ -90,8 +92,10 @@ and open the template in the editor.
             <input type="text" class="grande2" name="direccionp"/>
             <span class="negrillaenter grande">Fecha Contratado</span>
             <input type="date" class="grande2 fecha medio" name="fechacontratado"><br>
-            <button onclick="crearRestaurante()" > registrar</button>
+            <br>
         </div>
+        <div class="centrar"><button onclick="crearRestaurante()" class="medio" style="position: initial"> registrar</button></div>
+        
     </div>
 </body>
 </html>

@@ -297,7 +297,7 @@ function validar(tipo,texto){
             }
             break;
         case "email":
-            var expresion=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;;
+            var expresion=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             if(expresion.exec(texto)){
                 return true;
             }

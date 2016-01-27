@@ -11,16 +11,17 @@ function crearRestaurante()
     var razonsocial = $("input[name=razonsocial]").val().trim().toLowerCase();
     var nombrer = $("input[name=nombre]").val().trim().toLowerCase();
     var regional = $("#regional[option=selected]").val();
-    var nit = $("#input[name=nit]").val();
-    var direccions = $("#input[name=direccions]").val();
-    var direccionp = $("#input[name=direccionp]").val();
+    var nit = $("input[name=nit]").val();
+    var direccions = $("input[name=direccions]").val();
+    var direccionp = $("input[name=direccionp]").val();
    
-    var cuenta = $("#input[name=cuenta]").val();
+    var cuenta = $("input[name=cuenta]").val();
     var rol = $("#rol[option=selected]").text();
-    var sueldo = $("#input[name=sueldo]").val();
+    var sueldo = $("input[name=sueldo]").val();
     var nombrep = $("#nombrep").val().trim().toLowerCase();
-    var telefono = $("#nombrep").val().trim().toLowerCase();
-
+    var telefono = $("input[name=telefono]").val();
+   var password=$("#password");
+   var rpassword=$("#rpassword");
     var logo = $("#logo").attr('src');
     var text = "";
 
@@ -94,17 +95,25 @@ function crearRestaurante()
     }
    if (!validar("entero", sueldo))
     {
-        text += "<p>el campo cuenta no puede quedar vacio</p>";
+        text += "<p>por favor introduzca el sueldo correctamente</p>";
     }   
-
+   if (!validar("entero", telefono))
+    {
+        text += "<p>por favor introduzca el sueldo correctamente</p>";
+    }   
+ if ($('#password').val().length < 4 || $('#contraseña').val().length > 8)
+    {
+        text += "<p>el password tiene que tener mayor a 4  y menor a 8 caracteres</p>";
+    }
 
     if (text.length > 0) {
         $("body").msmOK(text);
         return;
     }
     $("#cargando").visible();
-    $.post(url, {proceso: 'insertarRestaurante', nombre: nombrer, ci: $("input[name=ci]").val().toLowerCase(), razonsocial: razonsocial,
-        logo: logo, fechacreacion: fechacreacion}, function (response) {
+    $.post(url, {proceso: 'insertarRestaurante', nombrep: nombrep.toLocaleLowerCase(), razonsocial: razonsocial,
+        logo: logo, nombrer:nombrer.toLocaleString(),regional:regional,nombres:nombres,nit:nit,direccions:direccions,
+    direccionp:direccionp,cuenta:cuenta,sueldo:sueldo,rol:rol,telefono:telefono,contrasena:password,rcontrasena:rpassword}, function (response) {
         $("#cargando").ocultar();
         var json = $.parseJSON(response);
         if (json.error !== "") {
