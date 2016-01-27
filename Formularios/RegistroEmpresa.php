@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -16,7 +12,7 @@ and open the template in the editor.
     <a href="../Clases/HERRAMIENTASPHP.php"></a>
     <title></title>
 </head>
-<body>
+<body style="font-family: Comic Sans MS">
     <?php
     include_once "../Clases/CONN.php";
     include_once "../Clases/REGIONAL.php";
@@ -25,7 +21,7 @@ and open the template in the editor.
         <h1 class="centrar">REGISTRO DE EMPRESA</h1><br>
         <div class="contenedor50">
             <span class="negrilla grande2">EMPRESA</span><br>
-            <div id="fotoperfil">
+            <div id="logo">
 
                 <img id="logo" src="../JavaScript/img376.jpg" alt="" onclick="cargarImagen(this, 1)" class="point"/>
                 <input type="file" id="fotocargar" style="display:none" onchange="cargarImagen(this, 2)">
@@ -45,7 +41,7 @@ and open the template in the editor.
             <span class="negrillaenter">Direccion</span>
             <input type="text" class="grande2" name="direccions">
                   <span class="negrillaenter">Regional</span>
-            <select id="regional" class="medio">
+            <select class="radius negrilla" id="regional" class="medio">
                 <?php
                 $con = new CONN("rest", "wdigital");
                 $regional = new REGIONAL($con);
@@ -73,28 +69,33 @@ and open the template in the editor.
             <input id="nombrep" type="text" class="grande2" name="nombre">
             <span class="negrillaenter">Cuenta</span>
             <input type="text" class="grande2" name="cuenta"><br>
-               <span class="negrillaenter">contraseña</span>
-            <input type="password" class="medio" name="contraseña" id="password">
-            <span class="negrillaenter">repita la contraseña</span>
-            <input type="password" class="medio" name="rpassword" >
+               <span class="negrillaenter">Contraseña</span>
+            <input type="password" class="grande2" name="contraseña" id="password">
+            <span class="negrillaenter">Repita la contraseña</span>
+            <input type="password" class="grande2" name="rpassword" >
             <span id="rol" class="negrillaenter">Rol</span>
-            <select>
-                <option value="0">-seleccione un rol-</option>
-                <option value="1">administrador</option>
-                <option value="2">vendedor</option>
-                <option value="3">almacenero</option>
+            <select class="radius negrilla">
+                <option  value="0">-Seleccione un rol-</option>
+                <option  value="1">administrador</option>
+                <option  value="2">vendedor</option>
+                <option  value="3">almacenero</option>
             </select>           
                   <span class="negrillaenter ">Telefono</span>
-            <input type="text" class="grande2" name="telefono"/><br><br>
+            <input type="text" class="radius" name="telefono"/>
             <span class="negrillaenter">Sueldo</span>
-            <input type="text" class="grande2" name="sueldo"><br>
+            <input type="text" class="raidus" name="sueldo"><br>
             <span class="negrillaenter ">Direccion</span>
             <input type="text" class="grande2" name="direccionp"/>
             <span class="negrillaenter grande">Fecha Contratado</span>
             <input type="date" class="grande2 fecha medio" name="fechacontratado"><br>
             <br>
+            
         </div>
-        <div class="centrar"><button onclick="crearRestaurante()" class="medio" style="position: initial"> registrar</button></div>
+        <div style="clear: both"></div>
+        <div class="centrar">
+            
+            <button onclick="crearRestaurante()" class="medio" style="position: initial"> registrar</button>
+        </div>
         
     </div>
 </body>

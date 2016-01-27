@@ -3,7 +3,7 @@ body{
     font-family: "Comic Sans MS";
     margin: 0;
     padding: 0;
-    overflow: hidden;
+   overflow: hidden;
     color: black;
     background-size: 60% 100%;
 }
@@ -12,7 +12,7 @@ iframe{
     height: 99%;
     border: none;
 }
-@font-face {
+.font-face {
     font-family: layla;
     src: url('LaylaExtraBold.ttf');
 }
@@ -259,15 +259,16 @@ body{
     background: #008A3D;
 }
 .cuerpoFormulario{
-     background: rebeccapurple none repeat scroll 0 0;
-    height: 552px;
+
+     height: 475px;
     overflow: auto;
-    width: 880px;
+    padding-left: 62px;
+    width: 918px;
 }
 
 #divprincipal{
      box-shadow: 0 0 35px 8px black;
-     height: 800px;
+     height: 620px;
      margin: 0 auto;
      width: 1058px;
      background: white;
@@ -276,7 +277,7 @@ body{
      overflow: hidden;
 }
 #idcontenedor {
-     height: 664px;
+     height: 495px;
     width: 1000px;
     background-color: rgba(20,106,204,0.8);
     margin: 32px auto;
@@ -302,8 +303,8 @@ input.grande{
       border-radius: 5px;
 }
 #fotoperfil{
-    width: 268px;
-    height: 141px;
+    width: 200px;
+    height: 200px;
     text-align: center;
     }
     #logo{
@@ -353,4 +354,8 @@ input.grande{
     margin: 0 auto;
     padding: 20px;
     width: 310px;
+
+}
+.radius{
+    border-radius: 5px;    
 }
