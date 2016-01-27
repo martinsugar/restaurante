@@ -14,7 +14,7 @@ function crearRestaurante()
     var nit = $("input[name=nit]").val();
     var direccions = $("input[name=direccions]").val();
     var direccionp = $("input[name=direccionp]").val();
-   
+   var fechacontratado=$("input[name=fechacontratado]").val();
     var cuenta = $("input[name=cuenta]").val();
     var rol = $("#rol[option=selected]").text();
     var sueldo = $("input[name=sueldo]").val();
@@ -113,7 +113,7 @@ function crearRestaurante()
     $("#cargando").visible();
     $.post(url, {proceso: 'insertarRestaurante', nombrep: nombrep.toLocaleLowerCase(), razonsocial: razonsocial,
         logo: logo, nombrer:nombrer.toLocaleString(),regional:regional,nombres:nombres,nit:nit,direccions:direccions,
-    direccionp:direccionp,cuenta:cuenta,sueldo:sueldo,rol:rol,telefono:telefono,contrasena:password,rcontrasena:rpassword}, function (response) {
+    direccionp:direccionp,cuenta:cuenta,sueldo:sueldo,rol:rol,fechacontratado:fechacontratado,telefono:telefono,contrasena:password,rcontrasena:rpassword}, function (response) {
         $("#cargando").ocultar();
         var json = $.parseJSON(response);
         if (json.error !== "") {

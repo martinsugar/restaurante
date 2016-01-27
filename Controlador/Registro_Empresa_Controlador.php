@@ -30,6 +30,7 @@ if ($proceso == "insertarRestaurante") {
     $telefono = $_POST['telefono'];
     $logo = $_POST['logo'];
     $fechacreacion = date("d/m/Y");
+    $fechacontratado= $_POST['fechacontratado'];
     $text = "";
     $Herramienta = new Herramientas();
     if (!$Herramienta->validar("vacio", $nombrer)) {
@@ -123,7 +124,7 @@ if ($proceso == "insertarRestaurante") {
                    $perso->rol=$rol;
                     $perso->telefono=$telefono;
                     $perso->direccion=$direccionp;
-                    $perso->fechaContratado=$fe
+                    $perso->fechaContratado=$fechacontratado;
                }
                
             if ($insert == 0) {
