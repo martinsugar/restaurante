@@ -46,7 +46,7 @@ class SUCURSAL {
 				$sucursal->regional_id=$row['regional_id']==null?"":$row['regional_id'];
 				$sucursal->cantidadMinima=$row['cantidadMinima']==null?"":$row['cantidadMinima'];
 				$sucursal->restaurante_id=$row['restaurante_id']==null?"":$row['restaurante_id'];
-				$lista[]=$empresa;
+				$lista[]= $sucursal;
 			}
 			return $lista;
 		}else{
@@ -61,7 +61,7 @@ class SUCURSAL {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.SUCURSAL(id_sucursal, Nombre, nit, direccion, nro_Factura, fecha_factura, llave_docificacion, sucursalcol, regional_id, cantidadMinima, restaurante_id) values("+$this->id_sucursal+",'"+$this->Nombre+"','"+$this->nit+"','"+$this->direccion+"',"+$this->nro_Factura+",'"+$this->fecha_factura+"','"+$this->llave_docificacion+"','"+$this->sucursalcol+"',"+$this->regional_id+","+$this->cantidadMinima+","+$this->restaurante_id+")";
+		$consulta="insert into eldebatedegusto.SUCURSAL(id_sucursal, Nombre, nit, direccion, nro_Factura, fecha_factura, llave_docificacion, sucursalcol, regional_id, cantidadMinima, restaurante_id) values(".$this->id_sucursal.",'".$this->Nombre."','".$this->nit."','".$this->direccion."',".$this->nro_Factura.",'".$this->fecha_factura."','".$this->llave_docificacion."','".$this->sucursalcol."',".$this->regional_id.",".$this->cantidadMinima.",".$this->restaurante_id.")";
 		$resultado=$this->CON->consulta($consulta);
 		$consulta="SELECT LAST_INSERT_ID() as id";
 		$resultado=$this->CON->consulta($consulta);

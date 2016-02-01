@@ -7,6 +7,7 @@ body{
     color: black;
     background-size: 60% 100%;
 }
+
 iframe{
     width: 99%;
     height: 99%;
@@ -232,16 +233,16 @@ body{
     
     
 }
-#idmenu{
+#menu{
   height: 30px;
     margin-left: -9px;
     margin-top: 20px;
     width: 98.3%;
 }
-#idmenu span:first-of-type{
+#menu span:first-of-type{
     margin-left: -26px;
 }
-#idmenu span{
+#menu span{
     background: rgba(245,106,25,0.8);
    box-shadow: 0 0 2px 2px;
    display: inline-block;
@@ -253,7 +254,7 @@ body{
    width: 150px;
    border-radius: 5px;
 }
-#idmenu div {
+#menu div {
    height: 30px;
     margin-left: -41px;
     background: #008A3D;
@@ -285,7 +286,7 @@ body{
     border: solid thin;
     border-radius: 3px 3px 3px 115px;
 }
-#idmenu span:hover{
+#menu span:hover{
     transform: scale(1.1,1.1);
     cursor: pointer;
      
@@ -309,6 +310,11 @@ input.grande{
     }
     #logo{
     width: 124px;
+    height: 124px;
+    text-align: center;
+    }
+    divlogo{
+          width: 124px;
     height: 124px;
     text-align: center;
     }
@@ -336,15 +342,14 @@ input.grande{
        display: inline-block;
  }
  #ingreso{
-    background: rgba(187, 187, 187, 0.75) none repeat scroll 0 0;
+      background: rgba(187, 187, 187, 0.75) none repeat scroll 0 0;
     border-radius: 6px;
     box-shadow: 0 0 7px 1px black;
     font-size: 25px;
-    margin: 7px auto;
+    margin: 2px auto 7px;
     padding: 5px;
     text-align: center;
     width: 270px;
-    margin-top: 50px;
 }
 #cuerpoIngresar{
     background: #9F9F9F;
@@ -358,4 +363,80 @@ input.grande{
 }
 .radius{
     border-radius: 5px;    
+}
+#divprincipalp{
+        background: red none repeat scroll 0 0;
+    border-radius: 57px;
+    box-shadow: 10px 0 6px 9px black, 20px 0 13px 16px orange;
+    height: 589px;
+    margin: 27px auto;
+    width: 956px;
+    overflow: hidden;
+}
+#contenedormenu{
+  background: white none repeat scroll 0 0;
+    border-radius: 127px;
+    float: left;
+    height: 250px;
+    margin-left: -101px;
+    margin-top: -59px;
+    overflow: hidden;
+    padding: 0;
+    width: 250px;
+    z-index: 2;
+    
+}
+#menu{
+    background: black none repeat scroll 0 0;
+    float: left;
+    height: 30px;
+    margin-left: 21px;
+    padding: 0;
+    position: relative;
+    width: 30px;
+    z-index: 3;
+}
+#menu1{
+    background: #00ff00 none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 43px;
+    left: 179px;
+    padding: 0;
+    position: relative;
+    top: 64px;
+    width: 45px;
+    z-index: 6;
+}
+#menu2{
+  background: #00ff00 none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 43px;
+    left: 191px;
+    padding: 0;
+    position: relative;
+    top: 84px;
+    width: 45px;
+    z-index: 6;
+}
+#menu3{
+     background: #00ff00 none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 43px;
+    left: 151px;
+    padding: 0;
+    position: relative;
+    top: 94px;
+    width: 45px;
+    z-index: 6;
+}
+#menu4{
+    background: #00ff00 none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 43px;
+    left: 78px;
+    padding: 0;
+    position: relative;
+    top: 65px;
+    width: 45px;
+    z-index: 6;
 }

@@ -14,7 +14,7 @@
         
         <title></title>
     </head>
-    <body id="bodyprincipal"> 
+    <body id="bodyprincipal" style="font-family: Comic Sans MS" > 
         <div id="divprincipal">
        <center>
         <menu id="idmenu"  >
@@ -22,7 +22,7 @@
             <span onclick="popup()" style="cursor: pointer">principal</span>
             <span onclick="cambiarMenu('Formularios/Cliente.php')">Cliente</span>
             <span onclick="cambiarMenu('Formularios/RegistroEmpresa.php')">REGISTRO</span>
-            <span>home</span>
+            <span onclick="cambiarMenu('Formularios/Login.php')">home</span>
         </menu></center>
             <div id="idcontenedor">
                 <iframe id="frameprincipal">

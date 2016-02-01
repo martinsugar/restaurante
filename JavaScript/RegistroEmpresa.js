@@ -20,8 +20,8 @@ function crearRestaurante()
     var sueldo = $("input[name=sueldo]").val();
     var nombrep = $("#nombrep").val().trim().toLowerCase();
     var telefono = $("input[name=telefono]").val();
-   var password=$("#password");
-   var rpassword=$("#rpassword");
+   var password=$("#password").val();
+   var rpassword=$("#rpassword").val();
     var logo = $("#logo").attr('src');
     var text = "";
 
@@ -101,7 +101,7 @@ function crearRestaurante()
     {
         text += "<p>por favor introduzca el sueldo correctamente</p>";
     }   
- if ($('#password').val().length < 4 || $('#contraseña').val().length > 8)
+ if ($('#password').val().length < 4 || $('#rpassword').val().length > 8)
     {
         text += "<p>el password tiene que tener mayor a 4  y menor a 8 caracteres</p>";
     }
@@ -113,7 +113,7 @@ function crearRestaurante()
     $("#cargando").visible();
     $.post(url, {proceso: 'insertarRestaurante', nombrep: nombrep.toLocaleLowerCase(), razonsocial: razonsocial,
         logo: logo, nombrer:nombrer.toLocaleString(),regional:regional,nombres:nombres,nit:nit,direccions:direccions,
-    direccionp:direccionp,cuenta:cuenta,sueldo:sueldo,rol:rol,fechacontratado:fechacontratado,telefono:telefono,contrasena:password,rcontrasena:rpassword}, function (response) {
+    direccionp:direccionp,cuenta:cuenta,sueldo:sueldo,rol:rol,fechacontratado:fechacontratado,telefono:telefono,password:password,rpassword:rpassword}, function (response) {
         $("#cargando").ocultar();
         var json = $.parseJSON(response);
         if (json.error !== "") {

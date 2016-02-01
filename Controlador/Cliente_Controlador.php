@@ -6,11 +6,12 @@ include_once "../Clases/HERRAMIENTASPHP.php";
 include_once "../Clases/DIRECCION.php";
 
 error_reporting(0);
+$con = new CONN("rest", "wdigital");
 $cliente = new CLIENTE($con);
 $error = "";
 $resultado = "";
 $proceso = $_POST["proceso"];
-$con = new CONN("rest", "wdigital");
+
 
 if ($proceso == "insertarCliente") {
 

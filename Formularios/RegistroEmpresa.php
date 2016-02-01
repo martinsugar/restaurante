@@ -21,7 +21,7 @@
         <h1 class="centrar">REGISTRO DE EMPRESA</h1><br>
         <div class="contenedor50">
             <span class="negrilla grande2">EMPRESA</span><br>
-            <div id="logo">
+            <div id="divlogo">
 
                 <img id="logo" src="../JavaScript/img376.jpg" alt="" onclick="cargarImagen(this, 1)" class="point"/>
                 <input type="file" id="fotocargar" style="display:none" onchange="cargarImagen(this, 2)">
@@ -40,7 +40,7 @@
             <input type="text" class="grande2" name="nit"><br>
             <span class="negrillaenter">Direccion</span>
             <input type="text" class="grande2" name="direccions">
-                  <span class="negrillaenter">Regional</span>
+            <span class="negrillaenter">Regional</span>
             <select class="radius negrilla" id="regional" class="medio">
                 <?php
                 $con = new CONN("rest", "wdigital");
@@ -62,41 +62,41 @@
         </div>
         <div class="contenedor50">
 
-      
-         
+
+
             <span class="negrilla grande2">PERSONAL</span>
             <span class="negrillaenter">Nombre</span>
             <input id="nombrep" type="text" class="grande2" name="nombre">
             <span class="negrillaenter">Cuenta</span>
             <input type="text" class="grande2" name="cuenta"><br>
-               <span class="negrillaenter">Contraseña</span>
+            <span class="negrillaenter">Contraseña</span>
             <input type="password" class="grande2" name="contraseña" id="password">
             <span class="negrillaenter">Repita la contraseña</span>
-            <input type="password" class="grande2" name="rpassword" >
-            <span id="rol" class="negrillaenter">Rol</span>
-            <select class="radius negrilla">
+            <input type="password" class="grande2" id="rpassword" >
+            <span  class="negrillaenter">Rol</span>
+            <select id="rol" class="radius negrilla">
                 <option  value="0">-Seleccione un rol-</option>
                 <option  value="1">administrador</option>
                 <option  value="2">vendedor</option>
                 <option  value="3">almacenero</option>
             </select>           
-                  <span class="negrillaenter ">Telefono</span>
+            <span class="negrillaenter ">Telefono</span>
             <input type="text" class="radius" name="telefono"/>
-            <span class="negrillaenter">Sueldo</span>
-            <input type="text" class="raidus" name="sueldo"><br>
+            <span class="negrillaenter ">Sueldo</span>
+            <input type="text" class="radius" name="sueldo"><br>
             <span class="negrillaenter ">Direccion</span>
             <input type="text" class="grande2" name="direccionp"/>
             <span class="negrillaenter grande">Fecha Contratado</span>
             <input type="date" class="grande2 fecha medio" name="fechacontratado"><br>
             <br>
-            
+
         </div>
         <div style="clear: both"></div>
         <div class="centrar">
-            
-            <button onclick="crearRestaurante()" class="medio" style="position: initial"> registrar</button>
+
+            <button onclick="crearRestaurante()" class="medio point  negrilla" style="position: initial"> registrar</button>
         </div>
-        
+
     </div>
 </body>
 </html>

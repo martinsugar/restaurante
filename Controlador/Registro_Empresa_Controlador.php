@@ -2,17 +2,19 @@
 
 include_once "../Clases/CONN.php";
 include_once "../Clases/RESTAURANTE.php";
+include_once "../Clases/SUCURSAL.php";
 include_once "../Clases/HERRAMIENTASPHP.php";
 include_once "../Clases/PERSONAL.php";
 include_once "../Clases/REGIONAL.php.php";
 
 
 error_reporting(0);
+$con = new CONN("rest", "wdigital");
 $restaurante = new RESTAURANTE($con);
 $error = "";
 $resultado = "";
 $proceso = $_POST["proceso"];
-$con = new CONN("rest", "wdigital");
+
 if ($proceso == "insertarRestaurante") {
     $nombres = $_POST['nombres'];
     $razonsocial = $_POST['razonsocial'];
@@ -20,7 +22,7 @@ if ($proceso == "insertarRestaurante") {
     $regional = $_POST['regional'];
     $nit = $_POST['nit'];
     $contrasena = $_POST['password'];
-    $rcontraseña = $_POST['rcontraseña'];
+    $rcontraseña = $_POST['rpassword'];
     $direccions = $_POST['direccions'];
     $direccionp = $_POST['direccionp'];
     $cuenta = $_POST['cuenta'];
@@ -125,7 +127,8 @@ if ($proceso == "insertarRestaurante") {
                     $perso->telefono=$telefono;
                     $perso->direccion=$direccionp;
                     $perso->fechaContratado=$fechacontratado;
-               }
+                    $perso->almacen_id=NULL;
+                    $insert= $perso->insertar();               }
                
             if ($insert == 0) {
                 $con->rollback();

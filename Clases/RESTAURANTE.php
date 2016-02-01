@@ -28,7 +28,7 @@ class RESTAURANTE {
 				$restaurante->razon_social=$row['razon_social']==null?"":$row['razon_social'];
 				$restaurante->logo=$row['logo']==null?"":$row['logo'];
 				$restaurante->fechaCreacion=$row['fechaCreacion']==null?"":$row['fechaCreacion'];
-				$lista[]=$empresa;
+				$lista[]=$restaurante;
 			}
 			return $lista;
 		}else{

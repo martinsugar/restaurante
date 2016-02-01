@@ -45,8 +45,9 @@
             <canvas id="canvas" style="display: none"></canvas>
 
         </div>
+   
         <div >
-            <button class="medio" id="bvalidar" onclick="crearCliente()">REGISTRAR</button>
+            <button class="medio negrilla point" id="bvalidar" onclick="crearCliente()">REGISTRAR</button>
         </div>
     </div>
 </body>
