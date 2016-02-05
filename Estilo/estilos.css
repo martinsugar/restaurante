@@ -3,7 +3,7 @@ body{
     font-family: "Comic Sans MS";
     margin: 0;
     padding: 0;
-   overflow: hidden;
+    overflow: hidden;
     color: black;
     background-size: 60% 100%;
 }
@@ -19,7 +19,7 @@ iframe{
 }
 #bodyprincipal{
     background-image: url('bg2.jpg');
-    
+
 }
 h1{
     font-size: 36px;
@@ -82,7 +82,7 @@ tbody{
 img{
     height: 100%;
     width: 100%;
-     border-radius: 133px;
+    border-radius: 133px;
 }
 .negrilla{
     font-weight: bold;
@@ -97,7 +97,7 @@ img{
 }
 .pequeno{
     width: 50px;
-     
+
 }
 .pequeno2{
     width: 20px;
@@ -143,7 +143,7 @@ button{
     border: solid medium appworkspace;
     padding: 11px 21px;
     display:none;
-        width: 336px;
+    width: 336px;
 }
 .alineacionIzquierda{
     float: left;
@@ -219,22 +219,22 @@ div{
 
 body{
     font-family: arial;
-    
+
 }
 #principal {
-   height: 1000px;
-   width: 600px;
-   background-color: red;
-   margin: 0 auto;
+    height: 1000px;
+    width: 600px;
+    background-color: red;
+    margin: 0 auto;
 }
 .point:hover{
     cursor:pointer;
     transform: scale(1.05,1.05);
-    
-    
+
+
 }
 #menu{
-  height: 30px;
+    height: 30px;
     margin-left: -9px;
     margin-top: 20px;
     width: 98.3%;
@@ -244,41 +244,41 @@ body{
 }
 #menu span{
     background: rgba(245,106,25,0.8);
-   box-shadow: 0 0 2px 2px;
-   display: inline-block;
-   font-size: 24px;
-   margin-left: 12px;
-   padding: 12px 25px;
-   position: relative;
-   top: -45px;
-   width: 150px;
-   border-radius: 5px;
+    box-shadow: 0 0 2px 2px;
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 12px;
+    padding: 12px 25px;
+    position: relative;
+    top: -45px;
+    width: 150px;
+    border-radius: 5px;
 }
 #menu div {
-   height: 30px;
+    height: 30px;
     margin-left: -41px;
     background: #008A3D;
 }
 .cuerpoFormulario{
 
-     height: 475px;
+    height: 475px;
     overflow: auto;
     padding-left: 62px;
     width: 918px;
 }
 
 #divprincipal{
-     box-shadow: 0 0 35px 8px black;
-     height: 620px;
-     margin: 0 auto;
-     width: 1058px;
-     background: white;
-     border-radius: 30px;
-     margin-top: 18px;
-     overflow: hidden;
+    box-shadow: 0 0 35px 8px black;
+    height: 620px;
+    margin: 0 auto;
+    width: 1058px;
+    background: white;
+    border-radius: 30px;
+    margin-top: 18px;
+    overflow: hidden;
 }
 #idcontenedor {
-     height: 495px;
+    height: 495px;
     width: 1000px;
     background-color: rgba(20,106,204,0.8);
     margin: 32px auto;
@@ -289,60 +289,60 @@ body{
 #menu span:hover{
     transform: scale(1.1,1.1);
     cursor: pointer;
-     
+
 }
 #imagenpopup{
-       width: 316px;
+    width: 316px;
     height: 195px;
 }
 input.grande2 {
     border-radius: 5px;
-    
+
 }
 input.grande{
-    
-      border-radius: 5px;
+
+    border-radius: 5px;
 }
 #fotoperfil{
     width: 200px;
     height: 200px;
     text-align: center;
-    }
-    #logo{
+}
+#logo{
     width: 124px;
     height: 124px;
     text-align: center;
-    }
-    divlogo{
-          width: 124px;
+}
+divlogo{
+    width: 124px;
     height: 124px;
     text-align: center;
-    }
+}
 #divregistro{
-  display: inline-block;
+    display: inline-block;
     height: 493px;
     width: 320px;
-     border: medium solid black;
+    border: medium solid black;
     border-radius: 35px;
- }
- #divsucursal{
-        border: medium solid black;
-        border-radius: 35px;
-        display: inline-block;
-        height: 240px;
-        padding-top: 61px;
-        width: 320px;
-        position: relative;
- }
-  #divpersonal{
-         height: 383px;
+}
+#divsucursal{
+    border: medium solid black;
+    border-radius: 35px;
+    display: inline-block;
+    height: 240px;
+    padding-top: 61px;
     width: 320px;
-     border: medium solid black;
+    position: relative;
+}
+#divpersonal{
+    height: 383px;
+    width: 320px;
+    border: medium solid black;
     border-radius: 35px;
-       display: inline-block;
- }
- #ingreso{
-      background: rgba(187, 187, 187, 0.75) none repeat scroll 0 0;
+    display: inline-block;
+}
+#ingreso{
+    background: rgba(187, 187, 187, 0.75) none repeat scroll 0 0;
     border-radius: 6px;
     box-shadow: 0 0 7px 1px black;
     font-size: 25px;
@@ -365,7 +365,7 @@ input.grande{
     border-radius: 5px;    
 }
 #divprincipalp{
-        background: red none repeat scroll 0 0;
+    background: red none repeat scroll 0 0;
     border-radius: 57px;
     box-shadow: 10px 0 6px 9px black, 20px 0 13px 16px orange;
     height: 589px;
@@ -374,17 +374,17 @@ input.grande{
     overflow: hidden;
 }
 #contenedormenu{
-  background: white none repeat scroll 0 0;
+    background: white none repeat scroll 0 0;
     border-radius: 127px;
     float: left;
-    height: 250px;
+    height: 0px;
     margin-left: -101px;
     margin-top: -59px;
     overflow: hidden;
     padding: 0;
-    width: 250px;
+    width: 0px;
     z-index: 2;
-    
+
 }
 #menu{
     background: black none repeat scroll 0 0;
@@ -408,7 +408,7 @@ input.grande{
     z-index: 6;
 }
 #menu2{
-  background: #00ff00 none repeat scroll 0 0;
+    background: #00ff00 none repeat scroll 0 0;
     border-radius: 50px;
     height: 43px;
     left: 191px;
@@ -419,7 +419,7 @@ input.grande{
     z-index: 6;
 }
 #menu3{
-     background: #00ff00 none repeat scroll 0 0;
+    background: #00ff00 none repeat scroll 0 0;
     border-radius: 50px;
     height: 43px;
     left: 151px;
@@ -439,4 +439,48 @@ input.grande{
     top: 65px;
     width: 45px;
     z-index: 6;
+}
+#divinvisible{
+    border-radius: 56px 0 0;
+    height: 202px;
+    overflow: hidden;
+    position: absolute;
+    width: 202px;
+}
+#divsubmenu{
+  float: left;
+
+    left: 0;
+    position: relative;
+    top: 108px;
+    transform: rotate(-182deg);
+   
+       background-image: url("next.png");
+    background-repeat: no-repeat;
+    height: 117px;
+    width: 93px; 
+    
+}
+
+#submenu{
+   height: 311px;
+    left: 874px;
+    position: relative;
+    top: -464px;
+    width: 300px;  
+}
+#contenedorsubmenu{
+  float: right;
+    height: 311px;
+    margin-top: -115px;
+    width: 191px;
+}
+
+#iframaportal{
+    border: medium none;
+ 
+    height: 99%;
+    margin-left: 10px;
+    width: 98%
+    
 }

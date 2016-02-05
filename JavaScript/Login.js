@@ -1,4 +1,4 @@
- hover function(),
+ 
  
 var url="../Controlador/Logeo_Controlador.php";
 function entrar(e){
