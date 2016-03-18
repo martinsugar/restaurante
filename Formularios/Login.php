@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
         <title>LOGIN</title>
         <link href="../Estilo/estilos.css" rel="stylesheet" type="text/css"/>
-        
         <script src="../JavaScript/jquery-2.1.3.min.js" type="text/javascript"></script>
         <script src="../JavaScript/jquery-ui.js" type="text/javascript"></script>
         <script src="../JavaScript/HERRAMIENTAS.js" type="text/javascript"></script>

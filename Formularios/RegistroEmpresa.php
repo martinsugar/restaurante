@@ -5,14 +5,12 @@
         <meta charset="UTF-8">
         <link href="../Estilo/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="../Estilo/EstiloFecha.css" rel="stylesheet" type="text/css"/>
-        <script src="../JavaScript/jquery-2.1.3.min.js" type="text/javascript"></script>
-        <script src="../JavaScript/jquery-ui.js" type="text/javascript"></script>
-        <script src="../JavaScript/HERRAMIENTAS.js" type="text/javascript"></script>
+        <script src="../JavaScript/Plugin/jquery-2.1.3.min.js" type="text/javascript"></script>
+        <script src="../JavaScript/Plugin/jquery-ui.js" type="text/javascript"></script>
+        <script src="../JavaScript/Plugin/HERRAMIENTAS.js" type="text/javascript"></script>
         <script src="../JavaScript/RegistroEmpresa.js" type="text/javascript"></script>
-    <a href="../Clases/HERRAMIENTASPHP.php"></a>
-    <title></title>
-</head>
-<body style="font-family: Comic Sans MS">
+    </head>
+    <body style="font-family: Comic Sans MS;">
     <?php
     include_once "../Clases/CONN.php";
     include_once "../Clases/REGIONAL.php";

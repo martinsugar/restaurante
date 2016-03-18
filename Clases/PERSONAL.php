@@ -66,22 +66,30 @@ class PERSONAL {
         return $this->rellenar($result);
     }
 
-    function logeo($cuenta, $contrasena) {
+    function logeor($cuenta, $contrasena) {
 
         $consulta = "select count(*) as contar from eldebatedegusto.PERSONAL where '$cuenta'=PERSONAL.cuenta and MD5('$contrasena')=PERSONAL.contrasena";
         $result = $this->CON->consulta($consulta);
         return $result->fetch_assoc()['contar'];
     }
 
-    function verificacionestado($cuenta, $contrasena) {
-
-        $consulta = "select count(*) as contar from eldebatedegusto.PERSONAL where '$cuenta'=PERSONAL.cuenta and MD5('$contrasena')=PERSONAL.contrasena and estado='ACTIVO'";
+    function estadoUsuario($cuenta, $contrasena) {
+        $consulta = "select personal.id_personal,personal.sucursal_id,personal.almacen_id as contar from eldebatedegusto.PERSONAL where '$cuenta'=PERSONAL.cuenta and MD5('$contrasena')=PERSONAL.contrasena and estado='ACTIVO'";
         $result = $this->CON->consulta($consulta);
-        return $result->fetch_assoc()['contar'];
+        if ($result->num_rows > 0) {
+            $empresa=array();
+            $row=$result->fetch_assoc();
+            $empresa["sucursal"] = $row['id_restaurante'];
+            $empresa["personal"] = $row['sucursal_id'];
+            $empresa["almacen"] = $row['almacen_id'];
+            return $empresa;
+        }else{
+            return null;
+        }
     }
 
     function insertar() {
-        $consulta = "insert into eldebatedegusto.PERSONAL(id_personal, nombre, cuenta, contrasena, rol, sueldo, estado, fechaContratado, sucursal_id, almacen_id, telefono, direccion) values(" . $this->id_personal . ",'" . $this->nombre . "','" . $this->cuenta . "',md5('" . $this->contrasena . "','" . $this->rol . "')," . $this->sueldo . ",'" . $this->estado . "','" . $this->fechaContratado . "'," . $this->sucursal_id . "," . $this->almacen_id . ",'" . $this->telefono . "','" . $this->direccion . "')";
+        $consulta = "insert into eldebatedegusto.PERSONAL(id_personal, nombre, cuenta, contrasena, rol, sueldo, estado, fechaContratado, sucursal_id, almacen_id, telefono, direccion) values(" . $this->id_personal . ",'" . $this->nombre . "','" . $this->cuenta . "',md5('" . $this->contrasena . "'),'" . $this->rol . "'," . $this->sueldo . ",'ACTIVO','" . $this->fechaContratado . "'," . $this->sucursal_id . "," . $this->almacen_id . ",'" . $this->telefono . "','" . $this->direccion . "')";
         $resultado = $this->CON->consulta($consulta);
         $consulta = "SELECT LAST_INSERT_ID() as id";
         $resultado = $this->CON->consulta($consulta);

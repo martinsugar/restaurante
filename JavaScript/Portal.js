@@ -1,70 +1,159 @@
-var estadomenu = false;
-var estado = true;
+var estadomenu = true;
 $(document).ready(function () {
-    var elemento = $("#divprincipalp");
-    var posicion = elemento.position();
-    $("#divinvisible").css({
-        left: posicion.left, top: (posicion.top + 27)
+    var menu = $("#menu");
+    var contenedromenu = $("#contenedormenu");
+    var solapa = $("#solapamenu");
+    var contSubMenu = $("#submenucontenedor");
+    contSubMenu.css({
+        top: menu.position().top - 16,
+        left: menu.position().left - 30
     });
-
-    $("#menu").mouseover(function () {
-
-        $("#contenedormenu").animate({
-            height: "250px"
-            , width: "250px"
-
-        }, 500, function () {
-
-        });
+    solapa.css({
+        top: menu.position().top - 15,
+        left: menu.position().left - 30
     });
-
-    $("#divprincipalp").mouseover(function () {
-
-
-        $("#contenedormenu").animate({
-            height: "0"
-            , width: "0"
-        }, 500, function () {
-            estadmenu = false;
-
-        });
-
+    menu.click(function () {
+        if (estadomenu) {
+            contenedromenu.animate({
+                height: "180px"
+                , width: "180px",
+                borderRadius: 95,
+                marginLeft: -40,
+                marginTop: -40
+            }, 300, function () {
+                estadomenu = false;
+            });
+        } else {
+            contenedromenu.animate({
+                height: "35px"
+                , width: "35px",
+                marginLeft: 9,
+                marginTop: 8,
+                borderRadius: 25
+            }, 300, function () {
+                estadomenu = true;
+            });
+        }
+    });
+    contenedromenu.mouseout(function () {
 
     });
-    /*    $("p").hover(function(){
-     $(this).css("background-color", "yellow");
-     }, function(){
-     $(this).css("background-color", "pink");
-     });*/
 });
-function abrirsubmenu() {
-    if ($("#divsubmenu").data("estado") === "1" || $("#divsubmenu").data("estado") === 1) {
-        $("#submenu").animate({
-            left: "658px"
+$(window).resize(function () {
+    var menu = $("#menu");
+    var solapa = $("#solapamenu");
+    var contSubMenu = $("#submenucontenedor");
+    contSubMenu.css({
+        top: menu.position().top - 16,
+        left: menu.position().left - 30
+    });
+    solapa.css({
+        top: menu.position().top - 7,
+        left: menu.position().left - 15
+    });
+});
 
-        }, 500, function () {
-            var img = "../Estilo/previous.png";
-            $("#divsubmenu").css("backgroundImage", "url(" + img + ")");
-            $("#divsubmenu").data("estado", '0');
+function Menu(texto) {
+    $("#btnSubmenu").visible(1);
+    var items="";
+    switch (texto){
+        case "ATENCION AL CLIENTE":
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Atencion</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Pedidos</div>";
+            break;
+        case "INVENTARIO":
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registrar Compra</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro de Inventario</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Stock Bajo</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro Proveedor</div>";
+            break;
+        case "ADMINISTRACION":
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registrar Sucursal</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registrar Almacen</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Configurar Restaurante</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registrar Personal</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro Personal</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Facturas Emitidas</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Reporte de movimiento</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Platillo Mas Solicitado</div>";
+            break;
+        case "PARAMETRIZACION":
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro del Menu</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro de Mesas</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Unidad de Medida </div>";
+            break;
+    }
+    $("#cuerpoSubmenu h2").text(texto);
+    $("#detallesubmenu").html(items);
+    var contenedromenu = $("#contenedormenu");
+    contenedromenu.animate({
+        height: "35px"
+        , width: "35px",
+        marginLeft: 9,
+        marginTop: 8,
+        borderRadius: 25
+    }, 300, function () {
+        estadomenu = true;
+        var cuerpo=$("#cuerpoSubmenu");
+        cuerpo.animate({
+            width: "300px"
+        }, 400, function () {
+            $("#btnSubmenu img").attr("src","Imagen/submenuAbierto.svg");
+            $("#btnSubmenu").data("estado","abierto");
+        });
+    });
+}
+function submenu(e){
+    var cuerpo=$("#cuerpoSubmenu");
+    if($(e).data("estado")==="cerrado"){
+        if(!estadomenu){
+            var contenedromenu = $("#contenedormenu");
+            contenedromenu.animate({
+                height: "35px"
+                , width: "35px",
+                marginLeft: -6,
+                marginTop: 0,
+                borderRadius: 25
+            }, 300, function () {
+                estadomenu = true;
+                cuerpo.animate({
+                    width: "300px"
+                }, 400, function () {
+                    $("#btnSubmenu img").attr("src","Imagen/submenuAbierto.svg");
+                    $(e).data("estado","abierto");
+                });
+            });
+        }else{
+           cuerpo.animate({
+                width: "300px"
+            }, 400, function () {
+                $("#btnSubmenu img").attr("src","Imagen/submenuAbierto.svg");
+                $(e).data("estado","abierto");
+            }); 
+        }
+        
+    }else{
+        cuerpo.animate({
+             width: "0"
+        }, 400, function () {
+            $("#btnSubmenu img").attr("src","Imagen/submenuCerrado.svg");
+            $(e).data("estado","cerrado");
         });
     }
-    else
-        $("#submenu").animate({
-            left: "874px"
-
-        }, 500, function () {
-            var img = "../Estilo/next.png";
-            $("#divsubmenu").css("backgroundImage", "url(" + img + ")");
-            $("#divsubmenu").data("estado", '1');
-        });
 }
-$(window).resize(function () {
-    var elemento = $("#divprincipalp");
-    var posicion = elemento.position();
-    $("#divinvisible").css({
-        left: posicion.left, top: (posicion.top + 27)
-    });
-});
-function cambiarMenu(url) {
-    $("#frameprincipal").attr('src', url);
+function abrirSubmenu(ele){
+    var url="";
+    switch ($(ele).html()){
+        case "Registrar Compra":
+            url="Formularios/RegistrarCompra.php"; 
+            break;
+    }
+    $("#iframaportal").attr("src",url);
+    var cuerpo=$("#cuerpoSubmenu");
+    cuerpo.animate({
+        width: "0"
+   }, 400, function () {
+       $("#btnSubmenu img").attr("src","Imagen/submenuCerrado.svg");
+       $("#btnSubmenu").data("estado","cerrado");
+   });
 }

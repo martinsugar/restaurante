@@ -32,17 +32,20 @@ if ($proceso == "verificarLogeo") {
     {
         $text .= "<p>El campo Contrasena no puede estar vacio</p>";
     }
-    if ($personal->logeo($cuenta, $contrasena===1)) {
-        
-    if ($personal->verificacionestado($cuenta, $contrasena===1)) {
-        
+    if($personal->logeor($cuenta, $contrasena)>0){
+        $re=$personal->estadoUsuario($cuenta, $contrasena);
+        if($re!=null){
+            session_start();
+            $_SESSION["sucursal"]=$re["sucursal"];
+            $_SESSION["personal"]=$re["personal"];
+            $_SESSION["almacen"]=$re["almacen"];
+            $resultado="Entro";
+        }else{
+            $error="Cuenta Bloqueado";
+        }
+    }else{
+        $error="Usuario o Contraseña es incorrecto. Intente nuevamente.";
     }
-    else
-        $text .= "<p>Cuenta inactiva</p>";
-    }
-    else
-        $text .= "<p>La Cuenta o la Contrasena no son correctas, vuelva a intentarlo</p>";
-
     if (strlen($text) > 0) {
         $error = $text;
     } 

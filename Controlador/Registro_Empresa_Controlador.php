@@ -111,7 +111,9 @@ if ($proceso == "insertarRestaurante") {
         if ($insert !== 0) {
             $sucu = new SUCURSAL();
             $sucu->id_sucursal = 0;
-            $sucu->regional_id = $insert;
+            $sucu->restaurante_id = $insert;
+            $sucu->nro_Factura = 0;
+            $sucu->cantidadMinima = 0;
             $sucu->Nombre = $nombres;
             $sucu->direccion = $direccions;
             $sucu->regional_id = $regional;          
@@ -120,14 +122,17 @@ if ($proceso == "insertarRestaurante") {
                if ($insert !== 0) {
                    $perso= new PERSONAL();
                    $perso->id_personal=0;
+                   $perso->CON=$con;
                    $perso->nombre=$nombrep;
                    $perso->cuenta=$cuenta;
+                   $perso->sucursal_id=$insert;
                    $perso->contrasena=$contrasena;
                    $perso->rol=$rol;
                     $perso->telefono=$telefono;
                     $perso->direccion=$direccionp;
+                    $perso->sueldo=0;
                     $perso->fechaContratado=$fechacontratado;
-                    $perso->almacen_id=NULL;
+                    $perso->almacen_id='null';
                     $insert= $perso->insertar();               }
                
             if ($insert == 0) {
