@@ -16,7 +16,7 @@ class MESA {
 		$this->estado = $estado;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -25,7 +25,7 @@ class MESA {
 				$mesa->nromesa=$row['nromesa']==null?"":$row['nromesa'];
 				$mesa->sucursal_id=$row['sucursal_id']==null?"":$row['sucursal_id'];
 				$mesa->estado=$row['estado']==null?"":$row['estado'];
-				$lista[]=$empresa;
+				$lista[]=$mesa;
 			}
 			return $lista;
 		}else{
@@ -39,12 +39,30 @@ class MESA {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.MESA where id_mesa=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($id_mesa){
+		$consulta="update eldebatedegusto.MESA set id_mesa =".$this->id_mesa.", nromesa ='".$this->nromesa."', sucursal_id =".$this->sucursal_id.", estado ='".$this->estado."' where id_mesa=".$id_mesa;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($id_mesa){
+		$consulta="delete from eldebatedegusto.MESA where id_mesa=".$id_mesa;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
-		$consulta="insert into eldebatedegusto.MESA(id_mesa, nromesa, sucursal_id, estado) values("+$this->id_mesa+",'"+$this->nromesa+"',"+$this->sucursal_id+",'"+$this->estado+"')";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.MESA(id_mesa, nromesa, sucursal_id, estado) values(".$this->id_mesa.",'".$this->nromesa."',".$this->sucursal_id.",'".$this->estado."')";
+		return $this->CON->manipular($consulta);
 	}
 
 }

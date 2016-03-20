@@ -32,7 +32,7 @@ class FACTURA {
 		$this->sucursal_id = $sucursal_id;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -49,7 +49,7 @@ class FACTURA {
 				$factura->totalDescrito=$row['totalDescrito']==null?"":$row['totalDescrito'];
 				$factura->estado=$row['estado']==null?"":$row['estado'];
 				$factura->sucursal_id=$row['sucursal_id']==null?"":$row['sucursal_id'];
-				$lista[]=$empresa;
+				$lista[]=$factura;
 			}
 			return $lista;
 		}else{
@@ -63,12 +63,30 @@ class FACTURA {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.FACTURA where id_factura=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($id_factura){
+		$consulta="update eldebatedegusto.FACTURA set id_factura =".$this->id_factura.", fecha ='".$this->fecha."', nroFactura =".$this->nroFactura.", nombre ='".$this->nombre."', nit ='".$this->nit."', codigoControl ='".$this->codigoControl."', autorizacion ='".$this->autorizacion."', llavedosificacion ='".$this->llavedosificacion."', total =".$this->total.", totalDescrito ='".$this->totalDescrito."', estado ='".$this->estado."', sucursal_id =".$this->sucursal_id." where id_factura=".$id_factura;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($id_factura){
+		$consulta="delete from eldebatedegusto.FACTURA where id_factura=".$id_factura;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
-		$consulta="insert into eldebatedegusto.FACTURA(id_factura, fecha, nroFactura, nombre, nit, codigoControl, autorizacion, llavedosificacion, total, totalDescrito, estado, sucursal_id) values("+$this->id_factura+",'"+$this->fecha+"',"+$this->nroFactura+",'"+$this->nombre+"','"+$this->nit+"','"+$this->codigoControl+"','"+$this->autorizacion+"','"+$this->llavedosificacion+"',"+$this->total+",'"+$this->totalDescrito+"','"+$this->estado+"',"+$this->sucursal_id+")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.FACTURA(id_factura, fecha, nroFactura, nombre, nit, codigoControl, autorizacion, llavedosificacion, total, totalDescrito, estado, sucursal_id) values(".$this->id_factura.",'".$this->fecha."',".$this->nroFactura.",'".$this->nombre."','".$this->nit."','".$this->codigoControl."','".$this->autorizacion."','".$this->llavedosificacion."',".$this->total.",'".$this->totalDescrito."','".$this->estado."',".$this->sucursal_id.")";
+		return $this->CON->manipular($consulta);
 	}
 
 }

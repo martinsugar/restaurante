@@ -33,12 +33,30 @@ class REGIONAL {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.REGIONAL where id_regional=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($id_regional){
+		$consulta="update eldebatedegusto.REGIONAL set id_regional =".$this->id_regional.", descripcion ='".$this->descripcion."' where id_regional=".$id_regional;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($id_regional){
+		$consulta="delete from eldebatedegusto.REGIONAL where id_regional=".$id_regional;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
-		$consulta="insert into eldebatedegusto.REGIONAL(id_regional, descripcion) values("+$this->id_regional+",'"+$this->descripcion+"')";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.REGIONAL(id_regional, descripcion) values(".$this->id_regional.",'".$this->descripcion."')";
+		return $this->CON->manipular($consulta);
 	}
 
 }

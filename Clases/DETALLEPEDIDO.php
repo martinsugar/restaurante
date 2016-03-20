@@ -16,7 +16,7 @@ class DETALLEPEDIDO {
 		$this->Producto_Id = $Producto_Id;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -25,7 +25,7 @@ class DETALLEPEDIDO {
 				$detallepedido->plato_id=$row['plato_id']==null?"":$row['plato_id'];
 				$detallepedido->cantidad=$row['cantidad']==null?"":$row['cantidad'];
 				$detallepedido->Producto_Id=$row['Producto_Id']==null?"":$row['Producto_Id'];
-				$lista[]=$empresa;
+				$lista[]=$detallepedido;
 			}
 			return $lista;
 		}else{
@@ -40,11 +40,8 @@ class DETALLEPEDIDO {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.DETALLEPEDIDO(pedido_id, plato_id, cantidad, Producto_Id) values("+$this->pedido_id+","+$this->plato_id+","+$this->cantidad+","+$this->Producto_Id+")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.DETALLEPEDIDO(pedido_id, plato_id, cantidad, Producto_Id) values(".$this->pedido_id.",".$this->plato_id.",".$this->cantidad.",".$this->Producto_Id.")";
+		return $this->CON->manipular($consulta);
 	}
 
 }

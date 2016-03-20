@@ -14,7 +14,7 @@ class INGREDIENTE {
 		$this->cantidad = $cantidad;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -22,7 +22,7 @@ class INGREDIENTE {
 				$ingrediente->plato_id_plato=$row['plato_id_plato']==null?"":$row['plato_id_plato'];
 				$ingrediente->Producto_Id_Producto=$row['Producto_Id_Producto']==null?"":$row['Producto_Id_Producto'];
 				$ingrediente->cantidad=$row['cantidad']==null?"":$row['cantidad'];
-				$lista[]=$empresa;
+				$lista[]=$ingrediente;
 			}
 			return $lista;
 		}else{
@@ -37,11 +37,8 @@ class INGREDIENTE {
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.INGREDIENTE(plato_id_plato, Producto_Id_Producto, cantidad) values("+$this->plato_id_plato+","+$this->Producto_Id_Producto+","+$this->cantidad+")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.INGREDIENTE(plato_id_plato, Producto_Id_Producto, cantidad) values(".$this->plato_id_plato.",".$this->Producto_Id_Producto.",".$this->cantidad.")";
+		return $this->CON->manipular($consulta);
 	}
 
 }

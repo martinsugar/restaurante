@@ -14,7 +14,7 @@ class DIRECCION {
 		$this->cliente_id = $cliente_id;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -22,7 +22,7 @@ class DIRECCION {
 				$direccion->id_direccion=$row['id_direccion']==null?"":$row['id_direccion'];
 				$direccion->descripcion=$row['descripcion']==null?"":$row['descripcion'];
 				$direccion->cliente_id=$row['cliente_id']==null?"":$row['cliente_id'];
-				$lista[]=$empresa;
+				$lista[]=$direccion;
 			}
 			return $lista;
 		}else{
@@ -36,12 +36,30 @@ class DIRECCION {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.DIRECCION where id_direccion=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($id_direccion){
+		$consulta="update eldebatedegusto.DIRECCION set id_direccion =".$this->id_direccion.", descripcion ='".$this->descripcion."', cliente_id =".$this->cliente_id." where id_direccion=".$id_direccion;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($id_direccion){
+		$consulta="delete from eldebatedegusto.DIRECCION where id_direccion=".$id_direccion;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
 		$consulta="insert into eldebatedegusto.DIRECCION(id_direccion, descripcion, cliente_id) values(".$this->id_direccion.",'".$this->descripcion."',".$this->cliente_id.")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		return $this->CON->manipular($consulta);
 	}
 
 }

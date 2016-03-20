@@ -1,68 +1,84 @@
 <?php
+
 class SUCURSAL {
-	var $id_sucursal;
-	var $Nombre;
-	var $nit;
-	var $direccion;
-	var $nro_Factura;
-	var $fecha_factura;
-	var $llave_docificacion;
-	var $regional_id;
-	var $cantidadMinima;
-	var $restaurante_id;
-	var $CON;
-	function SUCURSAL($con) {
-		$this->CON=$con;
-	}
 
-	function contructor($id_sucursal, $Nombre, $nit, $direccion, $nro_Factura, $fecha_factura, $llave_docificacion, $regional_id, $cantidadMinima, $restaurante_id){
-		$this->id_sucursal = $id_sucursal;
-		$this->Nombre = $Nombre;
-		$this->nit = $nit;
-		$this->direccion = $direccion;
-		$this->nro_Factura = $nro_Factura;
-		$this->fecha_factura = $fecha_factura;
-		$this->llave_docificacion = $llave_docificacion;
-		$this->regional_id = $regional_id;
-		$this->cantidadMinima = $cantidadMinima;
-		$this->restaurante_id = $restaurante_id;
-	}
+    var $id_sucursal;
+    var $Nombre;
+    var $nit;
+    var $direccion;
+    var $nro_Factura;
+    var $fecha_factura;
+    var $llave_docificacion;
+    var $regional_id;
+    var $restaurante_id;
+    var $CON;
 
-	function cargar($resultado){
-		if ($resultado->num_rows > 0) {
-			$lista=array();
-			while($row = $resultado->fetch_assoc()) {
-				$sucursal=new SUCURSAL();
-				$sucursal->id_sucursal=$row['id_sucursal']==null?"":$row['id_sucursal'];
-				$sucursal->Nombre=$row['Nombre']==null?"":$row['Nombre'];
-				$sucursal->nit=$row['nit']==null?"":$row['nit'];
-				$sucursal->direccion=$row['direccion']==null?"":$row['direccion'];
-				$sucursal->nro_Factura=$row['nro_Factura']==null?"":$row['nro_Factura'];
-				$sucursal->fecha_factura=$row['fecha_factura']==null?"":$row['fecha_factura'];
-				$sucursal->llave_docificacion=$row['llave_docificacion']==null?"":$row['llave_docificacion'];
-				$sucursal->regional_id=$row['regional_id']==null?"":$row['regional_id'];
-				$sucursal->cantidadMinima=$row['cantidadMinima']==null?"":$row['cantidadMinima'];
-				$sucursal->restaurante_id=$row['restaurante_id']==null?"":$row['restaurante_id'];
-				$lista[]= $sucursal;
-			}
-			return $lista;
-		}else{
-			return null;
-		}
-	}
+    function SUCURSAL($con) {
+        $this->CON = $con;
+    }
 
-	function todo(){
-		$consulta="select * from eldebatedegusto.SUCURSAL";
-		$result=$this->CON->consulta($consulta);
-		return $this->rellenar($result);
-	}
+    function contructor($id_sucursal, $Nombre, $nit, $direccion, $nro_Factura, $fecha_factura, $llave_docificacion, $regional_id, $restaurante_id) {
+        $this->id_sucursal = $id_sucursal;
+        $this->Nombre = $Nombre;
+        $this->nit = $nit;
+        $this->direccion = $direccion;
+        $this->nro_Factura = $nro_Factura;
+        $this->fecha_factura = $fecha_factura;
+        $this->llave_docificacion = $llave_docificacion;
+        $this->regional_id = $regional_id;
+        $this->restaurante_id = $restaurante_id;
+    }
 
-	function insertar(){
-		$consulta="insert into eldebatedegusto.SUCURSAL(id_sucursal, Nombre, nit, direccion, nro_Factura, fecha_factura, llave_docificacion, regional_id, cantidadMinima, restaurante_id) values(".$this->id_sucursal.",'".$this->Nombre."','".$this->nit."','".$this->direccion."',".$this->nro_Factura.",'".$this->fecha_factura."','".$this->llave_docificacion."',".$this->regional_id.",".$this->cantidadMinima.",".$this->restaurante_id.")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
-	}
+    function rellenar($resultado) {
+        
+    }
+
+    function todo() {
+        $consulta = "select * from eldebatedegusto.SUCURSAL";
+        $result = $this->CON->consulta($consulta);
+        return $this->rellenar($result);
+    }
+
+    function buscarParaSelect($res) {
+        $consulta = "select id_sucursal, nombre from eldebatedegusto.SUCURSAL where sucursal.restaurante_id=$res";
+        $resultado = $this->CON->consulta($consulta);
+        if ($resultado->num_rows > 0) {
+            $lista = array();
+            while ($row = $resultado->fetch_assoc()) {
+                $sucursal = array();
+                $sucursal["id_sucursal"] = $row['id_sucursal'] == null ? "" : $row['id_sucursal'];
+                $sucursal["nombre"] = $row['nombre'] == null ? "" : $row['nombre'];
+                $lista[] = $sucursal;
+            }
+            return $lista;
+        } else {
+            return null;
+        }
+    }
+
+    function buscarXID($id) {
+        $consulta = "select * from eldebatedegusto.SUCURSAL where id_sucursal=$id";
+        $result = $this->CON->consulta($consulta);
+        $empresa = $this->rellenar($result);
+        if ($empresa == null) {
+            return null;
+        }
+        return $empresa[0];
+    }
+
+    function modificar($id_sucursal) {
+        $consulta = "update eldebatedegusto.SUCURSAL set id_sucursal =" . $this->id_sucursal . ", Nombre ='" . $this->Nombre . "', nit ='" . $this->nit . "', direccion ='" . $this->direccion . "', nro_Factura =" . $this->nro_Factura . ", fecha_factura ='" . $this->fecha_factura . "', llave_docificacion ='" . $this->llave_docificacion . "', regional_id =" . $this->regional_id . ", restaurante_id =" . $this->restaurante_id . " where id_sucursal=" . $id_sucursal;
+        return $this->CON->manipular($consulta);
+    }
+
+    function eliminar($id_sucursal) {
+        $consulta = "delete from eldebatedegusto.SUCURSAL where id_sucursal=" . $id_sucursal;
+        return $this->CON->manipular($consulta);
+    }
+
+    function insertar() {
+        $consulta = "insert into eldebatedegusto.SUCURSAL(id_sucursal, Nombre, nit, direccion, nro_Factura, fecha_factura, llave_docificacion, regional_id, restaurante_id) values(" . $this->id_sucursal . ",'" . $this->Nombre . "','" . $this->nit . "','" . $this->direccion . "'," . $this->nro_Factura . ",'" . $this->fecha_factura . "','" . $this->llave_docificacion . "'," . $this->regional_id . "," . $this->restaurante_id . ")";
+        return $this->CON->manipular($consulta);
+    }
 
 }

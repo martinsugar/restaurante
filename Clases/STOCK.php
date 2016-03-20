@@ -5,20 +5,22 @@ class STOCK {
 	var $almacen_id;
 	var $Producto_Id;
 	var $cantidad;
+	var $cantidadmin;
 	var $CON;
 	function STOCK($con) {
 		$this->CON=$con;
 	}
 
-	function contructor($id_stock, $sucursal_id, $almacen_id, $Producto_Id, $cantidad){
+	function contructor($id_stock, $sucursal_id, $almacen_id, $Producto_Id, $cantidad, $cantidadmin){
 		$this->id_stock = $id_stock;
 		$this->sucursal_id = $sucursal_id;
 		$this->almacen_id = $almacen_id;
 		$this->Producto_Id = $Producto_Id;
 		$this->cantidad = $cantidad;
+		$this->cantidadmin = $cantidadmin;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -28,7 +30,8 @@ class STOCK {
 				$stock->almacen_id=$row['almacen_id']==null?"":$row['almacen_id'];
 				$stock->Producto_Id=$row['Producto_Id']==null?"":$row['Producto_Id'];
 				$stock->cantidad=$row['cantidad']==null?"":$row['cantidad'];
-				$lista[]=$empresa;
+				$stock->cantidadmin=$row['cantidadmin']==null?"":$row['cantidadmin'];
+				$lista[]=$stock;
 			}
 			return $lista;
 		}else{
@@ -42,12 +45,30 @@ class STOCK {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.STOCK where id_stock=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($id_stock){
+		$consulta="update eldebatedegusto.STOCK set id_stock =".$this->id_stock.", sucursal_id =".$this->sucursal_id.", almacen_id =".$this->almacen_id.", Producto_Id =".$this->Producto_Id.", cantidad =".$this->cantidad.", cantidadmin =".$this->cantidadmin." where id_stock=".$id_stock;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($id_stock){
+		$consulta="delete from eldebatedegusto.STOCK where id_stock=".$id_stock;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
-		$consulta="insert into eldebatedegusto.STOCK(id_stock, sucursal_id, almacen_id, Producto_Id, cantidad) values("+$this->id_stock+","+$this->sucursal_id+","+$this->almacen_id+","+$this->Producto_Id+","+$this->cantidad+")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.STOCK(id_stock, sucursal_id, almacen_id, Producto_Id, cantidad, cantidadmin) values(".$this->id_stock.",".$this->sucursal_id.",".$this->almacen_id.",".$this->Producto_Id.",".$this->cantidad.",".$this->cantidadmin.")";
+		return $this->CON->manipular($consulta);
 	}
 
 }

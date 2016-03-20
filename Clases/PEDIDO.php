@@ -22,7 +22,7 @@ class PEDIDO {
 		$this->cliente_id = $cliente_id;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -34,7 +34,7 @@ class PEDIDO {
 				$pedido->personal_id=$row['personal_id']==null?"":$row['personal_id'];
 				$pedido->nro=$row['nro']==null?"":$row['nro'];
 				$pedido->cliente_id=$row['cliente_id']==null?"":$row['cliente_id'];
-				$lista[]=$empresa;
+				$lista[]=$pedido;
 			}
 			return $lista;
 		}else{
@@ -48,12 +48,30 @@ class PEDIDO {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.PEDIDO where id_pedido=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($id_pedido){
+		$consulta="update eldebatedegusto.PEDIDO set id_pedido =".$this->id_pedido.", fecha ='".$this->fecha."', estado ='".$this->estado."', mesa_id =".$this->mesa_id.", personal_id =".$this->personal_id.", nro =".$this->nro.", cliente_id =".$this->cliente_id." where id_pedido=".$id_pedido;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($id_pedido){
+		$consulta="delete from eldebatedegusto.PEDIDO where id_pedido=".$id_pedido;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
-		$consulta="insert into eldebatedegusto.PEDIDO(id_pedido, fecha, estado, mesa_id, personal_id, nro, cliente_id) values("+$this->id_pedido+",'"+$this->fecha+"','"+$this->estado+"',"+$this->mesa_id+","+$this->personal_id+","+$this->nro+","+$this->cliente_id+")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.PEDIDO(id_pedido, fecha, estado, mesa_id, personal_id, nro, cliente_id) values(".$this->id_pedido.",'".$this->fecha."','".$this->estado."',".$this->mesa_id.",".$this->personal_id.",".$this->nro.",".$this->cliente_id.")";
+		return $this->CON->manipular($consulta);
 	}
 
 }

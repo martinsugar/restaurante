@@ -36,9 +36,10 @@ if ($proceso == "verificarLogeo") {
         $re=$personal->estadoUsuario($cuenta, $contrasena);
         if($re!=null){
             session_start();
-            $_SESSION["sucursal"]=$re["sucursal"];
+            $_SESSION["sucursal"]=$re["sucursal"]==null?0:$re["sucursal"];
             $_SESSION["personal"]=$re["personal"];
-            $_SESSION["almacen"]=$re["almacen"];
+            $_SESSION["almacen"]=$re["almacen"]==null?0:$re["almacen"];
+            $_SESSION["restaurante"]=$re["restaurante"];
             $resultado="Entro";
         }else{
             $error="Cuenta Bloqueado";

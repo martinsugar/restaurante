@@ -48,8 +48,8 @@ $(window).resize(function () {
         left: menu.position().left - 30
     });
     solapa.css({
-        top: menu.position().top - 7,
-        left: menu.position().left - 15
+        top: menu.position().top - 15,
+        left: menu.position().left - 30
     });
 });
 
@@ -146,6 +146,9 @@ function abrirSubmenu(ele){
     switch ($(ele).html()){
         case "Registrar Compra":
             url="Formularios/RegistrarCompra.php"; 
+            break;
+        case "Registro de Inventario":
+            url="Formularios/RegistroInventario.php"; 
             break;
     }
     $("#iframaportal").attr("src",url);

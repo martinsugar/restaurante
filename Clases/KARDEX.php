@@ -30,7 +30,7 @@ class KARDEX {
 		$this->factura_id = $factura_id;
 	}
 
-	function cargar($resultado){
+	function rellenar($resultado){
 		if ($resultado->num_rows > 0) {
 			$lista=array();
 			while($row = $resultado->fetch_assoc()) {
@@ -46,7 +46,7 @@ class KARDEX {
 				$kardex->sucursal_id=$row['sucursal_id']==null?"":$row['sucursal_id'];
 				$kardex->almacen_id=$row['almacen_id']==null?"":$row['almacen_id'];
 				$kardex->factura_id=$row['factura_id']==null?"":$row['factura_id'];
-				$lista[]=$empresa;
+				$lista[]=$kardex;
 			}
 			return $lista;
 		}else{
@@ -60,12 +60,30 @@ class KARDEX {
 		return $this->rellenar($result);
 	}
 
+
+	function buscarXID($id){
+		$consulta="select * from eldebatedegusto.KARDEX where Id_Kardex=$id";
+		$result=$this->CON->consulta($consulta);
+		$empresa=$this->rellenar($result);
+		if($empresa==null){
+			return null;
+		}
+return $empresa[0];
+	}
+
+	function modificar($Id_Kardex){
+		$consulta="update eldebatedegusto.KARDEX set Id_Kardex =".$this->Id_Kardex.", cantidad =".$this->cantidad.", precio_compra =".$this->precio_compra.", precio_venta =".$this->precio_venta.", movimiento ='".$this->movimiento."', fecha ='".$this->fecha."', Producto_Id =".$this->Producto_Id.", personal_id =".$this->personal_id.", sucursal_id =".$this->sucursal_id.", almacen_id =".$this->almacen_id.", factura_id =".$this->factura_id." where Id_Kardex=".$Id_Kardex;
+		return $this->CON->manipular($consulta);
+	}
+
+	function eliminar($Id_Kardex){
+		$consulta="delete from eldebatedegusto.KARDEX where Id_Kardex=".$Id_Kardex;
+		return $this->CON->manipular($consulta);
+	}
+
 	function insertar(){
-		$consulta="insert into eldebatedegusto.KARDEX(Id_Kardex, cantidad, precio_compra, precio_venta, movimiento, fecha, Producto_Id, personal_id, sucursal_id, almacen_id, factura_id) values("+$this->Id_Kardex+","+$this->cantidad+","+$this->precio_compra+","+$this->precio_venta+",'"+$this->movimiento+"','"+$this->fecha+"',"+$this->Producto_Id+","+$this->personal_id+","+$this->sucursal_id+","+$this->almacen_id+","+$this->factura_id+")";
-		$resultado=$this->CON->consulta($consulta);
-		$consulta="SELECT LAST_INSERT_ID() as id";
-		$resultado=$this->CON->consulta($consulta);
-		return $resultado->fetch_assoc()['id'];
+		$consulta="insert into eldebatedegusto.KARDEX(Id_Kardex, cantidad, precio_compra, precio_venta, movimiento, fecha, Producto_Id, personal_id, sucursal_id, almacen_id, factura_id) values(".$this->Id_Kardex.",".$this->cantidad.",".$this->precio_compra.",".$this->precio_venta.",'".$this->movimiento."','".$this->fecha."',".$this->Producto_Id.",".$this->personal_id.",".$this->sucursal_id.",".$this->almacen_id.",".$this->factura_id.")";
+		return $this->CON->manipular($consulta);
 	}
 
 }
