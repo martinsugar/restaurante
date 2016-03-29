@@ -9,11 +9,11 @@
         <script src="../JavaScript/Plugin/jquery-ui.js" type="text/javascript"></script>
         <script src="../JavaScript/Plugin/HERRAMIENTAS.js" type="text/javascript"></script>
         <script src="../JavaScript/Plugin/tableExport.min.js" type="text/javascript"></script>
-        <script src="../JavaScript/RegistroInventario.js" type="text/javascript"></script>
+        <script src="../JavaScript/StockBajo.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="formulario">
-            <h1>Registro de Inventario</h1>
+            <h1>Reporte Stock Bajo</h1>
             <div class='centrar'>
                 <input type='text' onkeyup="buscarInventario(event)" class='grande centrarTexto' name='buscadorNombre' placeholder="Buscadar por Nombre"/>
                 <select id='tipo' class="normal">
@@ -50,7 +50,6 @@
                 </tbody>
             </table>
             <div class='centrar clear'>
-                <button onclick='formularioProducto(0)' class='grande'>NUEVO PRODUCTO</button>
                 <button onclick='formularioProducto(1)' class='grande'>REGISTRAR COMPRA</button>
                 <button onclick='registrarStockMin()' class='grande'>REGISTRAR STOCK MIN.</button>
                 <button onclick="exportar('inventariotbl')" class='grande'>EXPORTAR A EXCEL</button>

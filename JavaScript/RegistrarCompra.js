@@ -1,11 +1,16 @@
 var url = "../Controlador/RegistrarCompra_Controlador.php";
+var idStock=0;
 var padreSession = window.parent.$("#cerrarSession");
 $(document).ready(function(){
    $(".fecha").datepicker();
    $(".fecha").val(fechaActual());
    $("input[type=number]").val(0);
+   idStock=localStorage.getItem("idstock");
+   if(localStorage.getItem("atras")===""){
+       $("#atras").ocultar();
+   }
     cargando(true);
-    $.post(url, {proceso: 'iniciar'}, function (response) {
+    $.post(url, {proceso: 'iniciar',stock:idStock}, function (response) {
         cargando(false);
         var json = $.parseJSON(response);
         if (json.error.length > 0) {
@@ -34,6 +39,19 @@ $(document).ready(function(){
                 html+="<option value='"+json.result.unidad[i].Id_Unidad+"'>"+json.result.unidad[i].descripcion+"</option>";
             }
             $("#unidad").html(html);
+            if(idStock!=0){
+                $("input[name=nombre]").val(json.result.producto.nombre);
+                $("input[name=preciocompra]").val(json.result.producto.Precio_Compra);
+                $("input[name=precioventa]").val(json.result.producto.Precio_Venta);
+                $("input[name=cantmin]").val(json.result.stock.cantidadmin);
+                $("#unidad option[value="+json.result.producto.Unidad_Id+"]").attr("selected",true);
+                $("#tipo option[value="+json.result.producto.tipo+"]").attr("selected",true);
+                $("#sucursal option[value="+json.result.producto.id_sucursal+"]").attr("selected",true);
+                $("#almacen option[value="+json.result.producto.id_almacen+"]").attr("selected",true);
+                $("#sucursal").attr("disabled",true);
+                $("#almacen").attr("disabled",true);
+                $("#fotoperfil img").attr("src",json.result.producto.foto);
+            }
 
         }
     });
@@ -77,7 +95,7 @@ function registroCompra(){
         return;
     }
     cargando(true);
-    $.post(url, {proceso: 'registarProducto', foto:foto,nombre:nombre,cantidad:cantidad,fecha:fecha
+    $.post(url, {proceso: 'registarProducto',idstock:idStock,nombre:nombre,cantidad:cantidad,fecha:fecha, fproducto:foto
         ,unidad:unidad,tipo:tipo,venta:precioventa,compra:precioCompra,min:cantmin,sucursal:sucrusal,almacen:almacen}, function (response) {
         cargando(false);
         var json = $.parseJSON(response);
@@ -100,6 +118,9 @@ $(window).resize(function () {
         top: $(".mas").position().top
     });
 });
+function atras(){
+    $(location).attr('href',localStorage.getItem("atras"));
+}
 function masunida(){
     if($(".mas").text()==="(+)"){
         $(".mas").text("(-)");

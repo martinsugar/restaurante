@@ -36,11 +36,18 @@ if ($proceso === "iniciar") {
     $almacen=new ALMACEN($con);
     $unidad=new UNIDAD($con);
     $resultado=array();
+    $idstock=$_POST["stock"];
     $resultado["sucursal"]=$sucursal->buscarParaSelect($restaurantesession);
     $resultado["almacen"]=$almacen->buscarParaSelect($restaurantesession);
     $resultado["unidad"]=$unidad->todo($restaurantesession);
     $resultado["id_sucursal"]=$sucursalsession;
     $resultado["id_almacen"]=$almacensession;
+    if($idstock!="0"){
+        $producto=new PRODUCTO($con);
+        $stock=new STOCK($con);
+        $resultado["stock"]=$stock->buscarXID($idstock);
+        $resultado["producto"]=$producto->buscarXID($resultado["stock"]->Producto_Id);
+    }
 }
 if($proceso==="crearUnidad"){
     $unidad=new UNIDAD($con);
@@ -69,7 +76,8 @@ if($proceso==="registarProducto"){
     $almacen=$_POST["almacen"];
     $unidad=$_POST["unidad"];
     $tipo=$_POST["tipo"];
-    $foto=$_POST["foto"];
+    $idstock=$_POST["idstock"];
+    $foto=$_POST["fproducto"];
     $almacen=$almacen==="0"?"null":$almacen;
     $sucursal=$sucursal==="0"?"null":$sucursal;
     if(!$Herramienta->validar("texto y entero",$nombre)){
@@ -94,16 +102,29 @@ if($proceso==="registarProducto"){
         $error.="<p>Debe seleccionar el almacen o sucursal donde registrara el producto.</p>";
     }
     if($error===""){
+        $stock=new STOCK($con);
         $con->transacion();
         $producto=new PRODUCTO($con);
         $producto->contructor(0, $compra, $venta, $nombre, $unidad, $tipo,$foto);
-        $id=$producto->insertar();
+        $id=0;
+        if($idstock==0){
+            $id=$producto->insertar();
+        }else{
+            $stock=$stock->buscarXID($idstock);
+            if($producto->modificar($stock->Producto_Id))$id=$stock->Producto_Id;
+        }
         if($id===0){
             $error="No se pudo registrar el producto.Intente nuevamente";
         }else{
-            $stock=new STOCK($con);
             $stock->contructor(0, $sucursal, $almacen, $id, $cantidad, $cantmin);
-            if($stock->insertar()){
+            $stockresult=false;
+            if($idstock==0){
+                $stockresult=$stock->insertar();
+            }else{
+                $stock->cantidad=floatval($cantidad)+floatval($stock->cantidad);
+                $stockresult=$stock->modificar($idstock);
+            }
+            if($stockresult){
                 $kardex=new KARDEX($con);
                 $kardex->contructor(0, $cantidad, $compra, $venta,"EGRESO", $fecha, $id, $personalsession, $sucursal, $almacen, "null");
                 if($kardex->insertar()){

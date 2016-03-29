@@ -441,37 +441,3 @@ function cargando(estado){
         $("#cargando").remove();
     }
 }
-/*
- * 
- * var lista = $("#"+tabla).find("tr");
-    var aux = "";
-    for (var i = 0; i < lista.length; i++) {
-        var tr=$(lista[i]).find("div");
-        for (var j = 1; j < tr.length; j++) {
-            var ele=$(tr[j]).children();
-            var texto="";
-            if(ele.is('input')){
-                texto=ele.val();
-            }
-            if(ele.is('select')){
-                texto=ele.find("option:selected").text();
-            }
-            if(texto===""){
-                texto=$(tr[j]).text();
-            }
-            aux += texto + "{";
-        }
-        aux = aux.substring(0, aux.length-1) + ",";
-    }
-    aux = aux.substring(0, aux.length-1);
-    $("#formExcel").remove();
-    $("body").append("<form id='formExcel' action='"+url+"' method='post' style='display: none;' accept-charset='ISO-8859-1'>"
-                    +"<input type='text' value='exportarExcel' name='proceso'/>"
-                    +"<input type='text' value='a{b{c{d,a{b{c{d,a{b{c{d,a{b{c{d' name='excel'/>"
-                    +"<input type='text' value='REPORTE' name='nombreExcel'/>"
-                    +"<input type='text' value='' name='tituloExcel'/>"
-                    +"<button id='descarga'>descargar</button>"
-                    +"</form>");
-    $("input[name=excel]").val(aux);
- */
-

@@ -42,7 +42,7 @@ if ($proceso === "iniciar") {
     $resultado["id_sucursal"]=$sucursalsession;
     $resultado["id_almacen"]=$almacensession;
 }
-if($proceso==="Inventario"){
+if($proceso==="InventarioStock"){
     $texto=$_POST["text"];
     $sucursal=$_POST["sucursal"];
     $almacen=$_POST["almacen"];
@@ -52,7 +52,7 @@ if($proceso==="Inventario"){
         $error.="<p>En el cuadro de texto de la busqueda no coloque caracteres especiales.</p>";
     }else{
         $stock=new STOCK($con);
-        $resultado=$stock->inventario($texto,$sucursal,$almacen,$unidad,$tipo,$restaurantesession);
+        $resultado=$stock->stockBajo($texto,$sucursal,$almacen,$unidad,$tipo,$restaurantesession);
     }
 }
 if($proceso==="registrarStockmin"){

@@ -1,5 +1,5 @@
 <?php
-    include_once "../Clases/CONN.php";
+include_once "../Clases/CONN.php";
 include_once "../Clases/PERSONAL.php";
 include_once "../Clases/HERRAMIENTASPHP.php";
 

@@ -1,4 +1,4 @@
-var url = "../Controlador/RegistroInventario_Controlador.php";
+var url = "../Controlador/StockBajo_Controlador.php";
 var padreSession = window.parent.$("#cerrarSession");
 $(document).ready(function(){
    $(".fecha").datepicker();
@@ -52,7 +52,7 @@ function buscarInventario(e){
         return;
     }
     cargando(true);
-    $.post(url, {proceso: 'Inventario', text: texto,unidad:unidad,tipo:tipo,sucursal:sucrusal,almacen:almacen}, function (response) {
+    $.post(url, {proceso: 'InventarioStock', text: texto,unidad:unidad,tipo:tipo,sucursal:sucrusal,almacen:almacen}, function (response) {
         cargando(false);
         var json = $.parseJSON(response);
         if (json.error.length > 0) {
@@ -117,9 +117,9 @@ function formularioProducto(tipo){
         var id=tr.data("id");
         localStorage.setItem("idstock",id);
     }
-    localStorage.setItem("atras", "RegistroInventario.php");
+    localStorage.setItem("atras", "StockBajo.php");
     $(location).attr('href',"RegistrarCompra.php");
 }
 function exportar(tabla) {
-    exportarExcel(tabla,"Reporte_Inventario_"+fechaActualReporte());
+    exportarExcel(tabla,"Reporte_StockBajo_"+fechaActualReporte());
 }

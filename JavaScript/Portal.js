@@ -4,6 +4,8 @@ $(document).ready(function () {
     var contenedromenu = $("#contenedormenu");
     var solapa = $("#solapamenu");
     var contSubMenu = $("#submenucontenedor");
+    localStorage.setItem("atras", "");
+    localStorage.setItem("idstock", "0");
     contSubMenu.css({
         top: menu.position().top - 16,
         left: menu.position().left - 30
@@ -62,7 +64,7 @@ function Menu(texto) {
             items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Pedidos</div>";
             break;
         case "INVENTARIO":
-            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registrar Compra</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Creacion de Producto</div>";
             items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro de Inventario</div>";
             items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Stock Bajo</div>";
             items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro Proveedor</div>";
@@ -78,9 +80,10 @@ function Menu(texto) {
             items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Platillo Mas Solicitado</div>";
             break;
         case "PARAMETRIZACION":
-            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro del Menu</div>";
-            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Registro de Mesas</div>";
-            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Unidad de Medida </div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Parametrizar Local</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Parametrizar Mesas</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Unidad de Medida</div>";
+            items+="<div class='itemSubmenu' onclick='abrirSubmenu(this)'>Tipo Plato</div>";
             break;
     }
     $("#cuerpoSubmenu h2").text(texto);
@@ -143,12 +146,23 @@ function submenu(e){
 }
 function abrirSubmenu(ele){
     var url="";
+    localStorage.setItem("atras", "");
+    localStorage.setItem("idstock", "0");
     switch ($(ele).html()){
-        case "Registrar Compra":
+        case "Creacion de Producto":
             url="Formularios/RegistrarCompra.php"; 
             break;
         case "Registro de Inventario":
             url="Formularios/RegistroInventario.php"; 
+            break;
+        case "Stock Bajo":
+            url="Formularios/StockBajo.php"; 
+            break;
+        case "Registro Proveedor":
+            url="Formularios/Proveedores.php"; 
+            break;
+        case "Parametrizar Local":
+            url="Formularios/ParametrizarLocal.php"; 
             break;
     }
     $("#iframaportal").attr("src",url);

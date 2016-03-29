@@ -51,6 +51,7 @@
                 </div>    
             </div>
             <div class='centrar clear'>
+                <button onclick='atras()' class='medio' id="atras">VOLVER</button>
                 <button onclick='registroCompra()' class='medio'>REGISTRAR</button>
             </div>
         </div>

@@ -60,9 +60,30 @@ class PRODUCTO {
         }
         return $empresa[0];
     }
+    function buscarXRestaurante($restaurante) {
+        $consulta = "SELECT producto.id_producto ,producto.nombre,producto.precio_compra
+FROM eldebatedegusto.producto
+where  producto.id_producto in (select stock.producto_id
+from eldebatedegusto.stock, eldebatedegusto.sucursal 
+where stock.sucursal_id=sucursal.id_sucursal and sucursal.restaurante_id=$restaurante)";
+        $resultado = $this->CON->consulta($consulta);
+        if ($resultado->num_rows > 0) {
+            $lista = array();
+            while ($row = $resultado->fetch_assoc()) {
+                $producto = array();
+                $producto["id_producto"] = $row['id_producto'] == null ? "" : $row['id_producto'];
+                $producto["precio_compra"] = $row['precio_compra'] == null ? "" : $row['precio_compra'];
+                $producto["nombre"] = $row['nombre'] == null ? "" : $row['nombre'];
+                $lista[] = $producto;
+            }
+            return $lista;
+        } else {
+            return null;
+        }
+    }
 
     function modificar($Id_Producto) {
-        $consulta = "update eldebatedegusto.PRODUCTO set Id_Producto =" . $this->Id_Producto . ", Precio_Compra =" . $this->Precio_Compra . ", Precio_Venta =" . $this->Precio_Venta . ", nombre ='" . $this->nombre . "', Unidad_Id =" . $this->Unidad_Id . ", tipo ='" . $this->tipo . "' where Id_Producto=" . $Id_Producto;
+        $consulta = "update eldebatedegusto.PRODUCTO set Id_Producto =" . $this->Id_Producto . ", Precio_Compra =" . $this->Precio_Compra . ", Precio_Venta =" . $this->Precio_Venta . ", nombre ='" . $this->nombre . "', Unidad_Id =" . $this->Unidad_Id . ", tipo ='" . $this->tipo . "', foto ='" . $this->foto . "'  where Id_Producto=" . $Id_Producto;
         return $this->CON->manipular($consulta);
     }
 
