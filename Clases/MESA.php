@@ -2,18 +2,18 @@
 class MESA {
 	var $id_mesa;
 	var $nromesa;
-	var $sucursal_id;
 	var $estado;
+	var $Ambiente_id;
 	var $CON;
 	function MESA($con) {
 		$this->CON=$con;
 	}
 
-	function contructor($id_mesa, $nromesa, $sucursal_id, $estado){
+	function contructor($id_mesa, $nromesa, $estado, $Ambiente_id){
 		$this->id_mesa = $id_mesa;
 		$this->nromesa = $nromesa;
-		$this->sucursal_id = $sucursal_id;
 		$this->estado = $estado;
+		$this->Ambiente_id = $Ambiente_id;
 	}
 
 	function rellenar($resultado){
@@ -23,8 +23,8 @@ class MESA {
 				$mesa=new MESA();
 				$mesa->id_mesa=$row['id_mesa']==null?"":$row['id_mesa'];
 				$mesa->nromesa=$row['nromesa']==null?"":$row['nromesa'];
-				$mesa->sucursal_id=$row['sucursal_id']==null?"":$row['sucursal_id'];
 				$mesa->estado=$row['estado']==null?"":$row['estado'];
+				$mesa->Ambiente_id=$row['Ambiente_id']==null?"":$row['Ambiente_id'];
 				$lista[]=$mesa;
 			}
 			return $lista;
@@ -51,7 +51,7 @@ return $empresa[0];
 	}
 
 	function modificar($id_mesa){
-		$consulta="update eldebatedegusto.MESA set id_mesa =".$this->id_mesa.", nromesa ='".$this->nromesa."', sucursal_id =".$this->sucursal_id.", estado ='".$this->estado."' where id_mesa=".$id_mesa;
+		$consulta="update eldebatedegusto.MESA set id_mesa =".$this->id_mesa.", nromesa ='".$this->nromesa."', estado ='".$this->estado."', Ambiente_id =".$this->Ambiente_id." where id_mesa=".$id_mesa;
 		return $this->CON->manipular($consulta);
 	}
 
@@ -61,7 +61,7 @@ return $empresa[0];
 	}
 
 	function insertar(){
-		$consulta="insert into eldebatedegusto.MESA(id_mesa, nromesa, sucursal_id, estado) values(".$this->id_mesa.",'".$this->nromesa."',".$this->sucursal_id.",'".$this->estado."')";
+		$consulta="insert into eldebatedegusto.MESA(id_mesa, nromesa, estado, Ambiente_id) values(".$this->id_mesa.",'".$this->nromesa."','".$this->estado."',".$this->Ambiente_id.")";
 		return $this->CON->manipular($consulta);
 	}
 
